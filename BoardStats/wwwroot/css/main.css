@@ -134,7 +134,7 @@ label {
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+	
 }
 
 button:hover {
@@ -239,6 +239,19 @@ iframe {
   border-radius: 50%;
   background-color: #fff;
   margin: 0 auto;
+}
+
+.img-center {
+	
+	
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
 }
 
 .login100-form-title {
@@ -630,7 +643,19 @@ iframe {
 		padding: 16px;
 		
 	}
+		.card .card-action i {
+			color: #ffffff;
+			margin-right: 1px;
+			transition: color 0.3s ease;
+			
+		}
 
+		
+		.card .card-action span {
+			color: #ffffff;
+			
+			transition: color 0.3s ease;
+		}
 		.card .card-action a {
 			color: #ffab40;
 			margin-right: 16px;
