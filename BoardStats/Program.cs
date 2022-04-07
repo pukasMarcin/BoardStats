@@ -1,4 +1,5 @@
 using BoardStats.Data;
+using BoardStats.Data.Services;
 using BoardStats.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IGamesService, GamesService>();
+builder.Services.AddScoped<ICollectionService, CollectionService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

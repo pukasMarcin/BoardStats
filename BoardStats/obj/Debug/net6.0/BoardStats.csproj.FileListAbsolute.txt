@@ -540,3 +540,5 @@ D:\BoardStats\BoardStats-master\BoardStats\obj\Debug\net6.0\refint\BoardStats.dl
 D:\BoardStats\BoardStats-master\BoardStats\obj\Debug\net6.0\BoardStats.pdb
 D:\BoardStats\BoardStats-master\BoardStats\obj\Debug\net6.0\BoardStats.genruntimeconfig.cache
 D:\BoardStats\BoardStats-master\BoardStats\obj\Debug\net6.0\ref\BoardStats.dll
+D:\BoardStats\BoardStats-master\BoardStats\bin\Debug\net6.0\HtmlAgilityPack.dll
+D:\BoardStats\BoardStats-master\BoardStats\bin\Debug\net6.0\CheckBoxList.Core.dll

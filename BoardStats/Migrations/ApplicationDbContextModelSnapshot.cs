@@ -121,6 +121,10 @@ namespace BoardStats.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("InstructionUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsInCollection")
                         .HasColumnType("bit");
 
@@ -137,6 +141,9 @@ namespace BoardStats.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderNumber")
+                        .HasColumnType("int");
 
                     b.Property<int>("PlayingTime")
                         .HasColumnType("int");
@@ -169,6 +176,74 @@ namespace BoardStats.Migrations
                     b.HasIndex("IdGame");
 
                     b.ToTable("Collections");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Game_Stat", b =>
+                {
+                    b.Property<int>("StatId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
+
+                    b.HasKey("StatId", "GameId");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Game_Stats");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Game_Win", b =>
+                {
+                    b.Property<int>("WinConId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
+
+                    b.HasKey("WinConId", "GameId");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Game_Wins");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Stat", b =>
+                {
+                    b.Property<int>("IdStat")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdStat"), 1L, 1);
+
+                    b.Property<string>("StatCategory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statistic")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdStat");
+
+                    b.ToTable("Stats");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.WinCon", b =>
+                {
+                    b.Property<int>("IdWinCon")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdWinCon"), 1L, 1);
+
+                    b.Property<string>("WinCondition")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdWinCon");
+
+                    b.ToTable("WinCons");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -315,6 +390,44 @@ namespace BoardStats.Migrations
                     b.Navigation("GameId");
                 });
 
+            modelBuilder.Entity("BoardStats.Models.Game_Stat", b =>
+                {
+                    b.HasOne("BoardStats.Models.Boardgames", "Game")
+                        .WithMany("Game_Stat")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.Stat", "Stat")
+                        .WithMany("Game_Stat")
+                        .HasForeignKey("StatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("Stat");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Game_Win", b =>
+                {
+                    b.HasOne("BoardStats.Models.Boardgames", "Game")
+                        .WithMany("Game_Win")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.WinCon", "WinCon")
+                        .WithMany("Game_Win")
+                        .HasForeignKey("WinConId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("WinCon");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -364,6 +477,23 @@ namespace BoardStats.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Boardgames", b =>
+                {
+                    b.Navigation("Game_Stat");
+
+                    b.Navigation("Game_Win");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Stat", b =>
+                {
+                    b.Navigation("Game_Stat");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.WinCon", b =>
+                {
+                    b.Navigation("Game_Win");
                 });
 #pragma warning restore 612, 618
         }

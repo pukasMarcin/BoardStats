@@ -39,5 +39,13 @@ namespace BoardStats.Models
         public string Category { get; set; }
 
         public bool IsInCollection { get; set; }
+
+        public int OrderNumber { get; set; }
+
+        public string InstructionUrl { get; set; }
+
+        public List<Game_Win> Game_Win { get; set; }
+
+        public List<Game_Stat> Game_Stat { get; set; }
     }
 }

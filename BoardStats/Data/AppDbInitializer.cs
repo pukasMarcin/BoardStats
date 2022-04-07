@@ -33,12 +33,15 @@ namespace BoardStats.Data
                             PlayingTime= 120,
                             Expansion=false,
                             MainGame="Terraformacja Marsa",
-                            Category=GamesCategory.Economic.ToString()
+                            Category=GamesCategory.Economic.ToString(),
+                            OrderNumber=0,
+                            InstructionUrl="https://www.wydawnictworebel.pl/repository/files/instrukcje/Terraformacja%20Marsa/TM_instrukcja%20www.pdf"
+
                         },
 
                            new Boardgames()
                         {
-                            Name = "7 cudów świata",
+                            Name = "7 cudów świata - Pojedynek",
                             BggId= "173346",
                             BggRate = "8.1",
                             Description = "Science? Military? What will you draft to win this head-to-head version of 7 Wonders?",
@@ -49,7 +52,9 @@ namespace BoardStats.Data
                             PlayingTime= 30,
                             Expansion=false,
                             MainGame="7 cudów świata",
-                            Category=GamesCategory.Economic.ToString()
+                            Category=GamesCategory.Economic.ToString(),
+                             OrderNumber=0,
+                             InstructionUrl ="https://files.rebel.pl/files/instrukcje/Pojedynek_instrukcja_nowa.pdf"
                         },
 
                               new Boardgames()
@@ -65,7 +70,9 @@ namespace BoardStats.Data
                             PlayingTime= 30,
                             Expansion=true,
                             MainGame="7 cudów świata",
-                            Category=GamesCategory.Economic.ToString()
+                            Category=GamesCategory.Economic.ToString(),
+                             OrderNumber=0,
+                             InstructionUrl="https://repository.rebel.pl/files/instrukcje/7%20cudow%20swiata%20pojedynek%20panteon%20PL.pdf"
                         },
 
                                  new Boardgames()
@@ -81,7 +88,9 @@ namespace BoardStats.Data
                             PlayingTime= 240,
                             Expansion=false,
                             MainGame="Bitwa 5 armii",
-                            Category=GamesCategory.Wargame.ToString()
+                            Category=GamesCategory.Wargame.ToString(),
+                             OrderNumber=0,
+                             InstructionUrl="http://galakta.pl/download/Bitwa_Pieciu_Armii_instrukcja.pdf"
                         },
 
                                     new Boardgames()
@@ -97,7 +106,9 @@ namespace BoardStats.Data
                             PlayingTime= 180,
                             Expansion=false,
                             MainGame="Battlestar Galactica",
-                            Category=GamesCategory.Cooperation.ToString()
+                            Category=GamesCategory.Cooperation.ToString(),
+                             OrderNumber=0,
+                             InstructionUrl ="http://galakta.pl/download/instrukcja_BSG.pdf"
                         },
 
 
@@ -114,16 +125,338 @@ namespace BoardStats.Data
                             PlayingTime= 180,
                             Expansion=true,
                             MainGame="Battlestar Galactica",
-                            Category=GamesCategory.Cooperation.ToString()
+                            Category=GamesCategory.Cooperation.ToString(),
+                             OrderNumber=0,
+                             InstructionUrl="http://aleplanszowki.pl/pliki/BSG%20Swit.pdf"
                         },
 
                     });
                     context.SaveChanges();
                 }
 
+                if (!context.WinCons.Any())
+                {
+                    context.WinCons.AddRange(new List<WinCon>()
+                    {
+
+                        new WinCon()
+                        {
+                            WinCondition="Punktacja"
+
+                        },
+
+                        new WinCon()
+                        {
+                            WinCondition="Dominacja militarna"
+
+                        },
+                         new WinCon()
+                        {
+                            WinCondition="Dominacja naukowa"
+
+                        },
+
+                          new WinCon()
+                        {
+                            WinCondition="Zwycięstwo Cylonów"
+
+                        },
+
+                             new WinCon()
+                        {
+                            WinCondition="Zwycięstwo ludzi"
+
+                        },
+
+                                  new WinCon()
+                        {
+                            WinCondition="Bolg wyeliminowany"
+
+                        },
+                                       new WinCon()
+                        {
+                            WinCondition="Beorn"
+
+                        },
+
+                                            new WinCon()
+                        {
+                            WinCondition="Przeznaczenie"
+
+                        },
+
+                    });
+                    context.SaveChanges();
+
+                }
+
+                if (!context.Game_Wins.Any())
+                {
+                    context.Game_Wins.AddRange(new List<Game_Win>()
+                    {
+
+                        new Game_Win()
+                        {
+                            GameId=1,
+                            WinConId=1
+
+                        },
+
+                         new Game_Win()
+                        {
+                            GameId=2,
+                            WinConId=1
+
+                        },
+
+                            new Game_Win()
+                        {
+                            GameId=2,
+                            WinConId=2
+
+                        },
+
+                               new Game_Win()
+                        {
+                            GameId=2,
+                            WinConId=3
+
+                        },
+
+                                             new Game_Win()
+                        {
+                            GameId=3,
+                            WinConId=1
+
+                        },
+
+                            new Game_Win()
+                        {
+                            GameId=3,
+                            WinConId=2
+
+                        },
+
+                               new Game_Win()
+                        {
+                            GameId=3,
+                            WinConId=3
+
+                        },
+
+                        new Game_Win()
+                        {
+                            GameId=4,
+                            WinConId=1
+
+                        },
+                         new Game_Win()
+                        {
+                            GameId=4,
+                            WinConId=6
+
+                        },
+                          new Game_Win()
+                        {
+                            GameId=4,
+                            WinConId=7
+
+                        },
+                           new Game_Win()
+                        {
+                            GameId=4,
+                            WinConId=8
+
+                        },
+
+                            new Game_Win()
+                        {
+                            GameId=5,
+                            WinConId=4
+
+                        },
+
+                                 new Game_Win()
+                        {
+                            GameId=5,
+                            WinConId=5
+
+                        },
+
+                                           new Game_Win()
+                        {
+                            GameId=6,
+                            WinConId=4
+
+                        },
+
+                                 new Game_Win()
+                        {
+                            GameId=6,
+                            WinConId=5
+
+                        },
+
+
+                    });
+                    context.SaveChanges();
+
+                }
+
+
+                if (!context.Stats.Any())
+                {
+                    context.Stats.AddRange(new List<Stat>()
+                    {
+
+                        new Stat()
+                        {
+                            Statistic="Punktacja",
+                            StatCategory="Punktacja"
+
+                        },
+
+                         new Stat()
+                        {
+                            Statistic="Żywność",
+                            StatCategory="Zasoby"
+
+                        },
+
+                           new Stat()
+                        {
+                            Statistic="Ludzie",
+                            StatCategory="Zasoby"
+
+                        },
+                          new Stat()
+                        {
+                            Statistic="Paliwo",
+                            StatCategory="Zasoby"
+
+                        },
+                          new Stat()
+                        {
+                            Statistic="Morale",
+                            StatCategory="Zasoby"
+
+                        },
+                              new Stat()
+                        {
+                            Statistic="Siła militarna",
+                            StatCategory="Militaria"
+
+                        },
 
 
 
+                    });
+                    context.SaveChanges();
+
+                }
+
+                if (!context.Game_Stats.Any())
+                {
+                    context.Game_Stats.AddRange(new List<Game_Stat>()
+                    {
+
+                        new Game_Stat()
+                        {
+                            GameId=1,
+                            StatId=1
+
+                        },
+
+                         new Game_Stat()
+                        {
+                            GameId=2,
+                            StatId=1
+
+                        },
+                          new Game_Stat()
+                        {
+                            GameId=2,
+                            StatId=6
+
+                        },
+
+                                  new Game_Stat()
+                        {
+                            GameId=3,
+                            StatId=1
+
+                        },
+                          new Game_Stat()
+                        {
+                            GameId=3,
+                            StatId=6
+
+                        },
+                            new Game_Stat()
+                        {
+                            GameId=4,
+                            StatId=1
+
+                        },
+
+                              new Game_Stat()
+                        {
+                            GameId=5,
+                            StatId=2
+
+                        },
+
+                                      new Game_Stat()
+                        {
+                            GameId=5,
+                            StatId=3
+
+                        },
+        new Game_Stat()
+                        {
+                            GameId=5,
+                            StatId=4
+
+                        },
+
+                new Game_Stat()
+                        {
+                            GameId=5,
+                            StatId=5
+
+                        },
+                               new Game_Stat()
+                        {
+                            GameId=6,
+                            StatId=2
+
+                        },
+
+                                      new Game_Stat()
+                        {
+                            GameId=6,
+                            StatId=3
+
+                        },
+        new Game_Stat()
+                        {
+                            GameId=6,
+                            StatId=4
+
+                        },
+
+                new Game_Stat()
+                        {
+                            GameId=6,
+                            StatId=5
+
+                        },
+
+                  });
+                    context.SaveChanges();
+
+
+                }
             }
         }
     }

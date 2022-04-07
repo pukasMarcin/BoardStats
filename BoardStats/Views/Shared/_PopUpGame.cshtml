@@ -1,0 +1,79 @@
+﻿@model Boardgames
+
+
+
+ 
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"> @Model.Name </h4>
+        </div>
+        <div class="modal-body">
+        
+            <div class="col-md-6">
+
+                <div class="card-img">
+                <img class="img-responsive" src=@Model.ImageUrl>
+             </div>
+                    
+                    
+                   <div class="text-justify">@Model.Description</div>
+
+
+            </div>
+
+             <div class="col-md-6">
+
+                 <row>
+                      <div class="col-md-6m">
+                          <i class="bi bi-star"></i> <span>@Model.BggRate</span>
+                      </div>
+                          <div class="col-md-6m">
+                              <i class="bi bi-person"></i>  <span>@Model.MinPlayers-@Model.MaxPlayers </span>
+                      </div>
+                 </row>
+
+                    <row>
+                      <div class="col-md-6m">
+                           <i class="bi bi-hourglass"></i>  <span>@Model.PlayingTime</span>
+                      </div>
+                          <div class="col-md-6m">
+                              <i class="bi bi-hand-thumbs-up"></i><i class="bi bi-person"></i>  <span>@Model.BestPlayers</span>
+                      </div>
+                 </row>
+
+                     
+                      <div class="col-md-12">
+                           <i class="bi bi-book"></i>  <a href="@Model.InstructionUrl" target="_blank">Instrukcja</a>
+                      </div>
+                          <div class="col-md-12">
+                             <i class="bi bi-tag"></i>  <span>@Model.Category</span>
+                      </div>
+
+                      @foreach(var win in Model.Game_Win)
+                    {
+                        <span>@win.WinCon.WinCondition</span>
+                    }
+
+
+
+             </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
