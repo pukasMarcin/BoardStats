@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model BoardStats.Data.ViewModels.NewPlayerVM
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <form  method="post" class="form-register" id="form-register">
+		        
+			  @Html.HiddenFor(m => Model.PlayerTag, new {Value=@Model.PlayerTag})
+											@Html.HiddenFor(m => Model.UserName, new {Value=@User.Identity.Name})
+											@Html.HiddenFor(m => Model.UserId, new {Value="brak"})
+
+									   <div class="col-sm-12">
+									<div class="form-holder">
+										
+											<input type="text" asp-for="@Model.PlayerName" class="form-control" id="PlayerName" name="PlayerName" style="position: relative; left: 100px;" placeholder="Podaj nazwe gracza">
+									
+										
+
+										
+									</div>
+								
+						</div>
+					
+
+
+						
+
+						<div class="form-row">
+									
+							
+						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" asp-action="AddNewPlayer2" asp-controller="Players" >Dodaj</button>
+					
+						
+						</div>
+
+						
+						
+		        
+		        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  
+

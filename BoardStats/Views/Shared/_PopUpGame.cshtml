@@ -11,8 +11,8 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"> @Model.Name </h4>
+        
+          <h4 class="modal-title"> @Model.Name    <span style="float:right">@Model.Category</span>  </h4>
         </div>
         <div class="modal-body">
         
@@ -60,6 +60,24 @@
                     {
                         <span>@win.WinCon.WinCondition</span>
                     }
+
+                       @foreach(var stat in Model.Game_Stat)
+                    {
+                        <span>@stat.Stat.Statistic</span>
+                    }
+
+                           <row>
+                      <div class="col-md-6m">
+                           <a asp-action="Update" asp-id="@Model.IdGame">Update</a>
+                      </div>
+                    
+                          <div class="col-md-6m">
+                              <button type="button" value="Delete" onclick="location.href='@Url.Action("DeleteGame", "Games", new { Id = @Model.IdGame })'" class="btn btn-default" >Delete</button>   
+                              
+                      </div>
+                     
+                 </row>
+
 
 
 

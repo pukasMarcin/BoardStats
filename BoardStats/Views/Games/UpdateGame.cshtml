@@ -109,10 +109,10 @@
 </header>
 
 	<div class="container">
-		<div class="wizard-heading">Dodaj nową gre</div>
+		<div class="wizard-heading">Edycja gry</div>
 		<div class="wizard-v6-content">
 			<div class="wizard-form">
-		        <form class="form-register" id="form-register" asp-controller="Games" asp-action="Create" method="post">
+		        <form class="form-register" id="form-register" asp-controller="Games" asp-action="Update" method="post">
 		        	<div id="form-total">
 		        		<!-- SECTION 1 -->
 			            <h2>
@@ -177,7 +177,7 @@
 								
 								<div class="form-row">
 							
-						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" >Dodaj</button>
+						<button class="btn btn-success " style="position: relative; left: 30px;" type="submit" >Update</button>
 					
 						
 						</div>
@@ -251,7 +251,7 @@
 
 					  <div class="form-row">
 							
-						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" >Dodaj</button>
+						<button class="btn btn-success " style="position: relative; left: 30px;" type="submit" >Update</button>
 					
 						
 						</div>
@@ -353,10 +353,11 @@
 
 
 @Html.HiddenFor(m => Model.BggId, new {Value= @Model.BggId})
+@Html.HiddenFor(m => Model.holdId, new {Value= @Model.holdId})
 
 	<div class="form-row">
 							
-						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" >Dodaj</button>
+						<button class="btn btn-success " style="position: relative; left: 30px;" type="submit" >Update</button>
 					
 						
 						</div>

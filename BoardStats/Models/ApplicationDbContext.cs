@@ -38,6 +38,18 @@ namespace BoardStats.Models
             modelBuilder.Entity<Game_Stat>().HasOne(m => m.Stat).WithMany(am => am.Game_Stat).HasForeignKey(m => m.StatId);
 
 
+            modelBuilder.Entity<Match_Stat>().HasKey(am => new
+            {
+                am.IdStat,
+                 am.PlayerId,
+                am.MatchId
+               
+            });
+
+            modelBuilder.Entity<Match_Stat>().HasOne(m => m.Match).WithMany(am => am.Match_Stat).HasForeignKey(m => m.MatchId);
+            modelBuilder.Entity<Match_Stat>().HasOne(m => m.Player).WithMany(am => am.Match_Stat).HasForeignKey(m =>m.PlayerId);
+            modelBuilder.Entity<Match_Stat>().HasOne(m => m.Stat).WithMany(am => am.Match_Stat).HasForeignKey(m => m.IdStat);
+
             base.OnModelCreating(modelBuilder);
         }
 
@@ -51,7 +63,10 @@ namespace BoardStats.Models
         public virtual DbSet<Game_Win> Game_Wins { get; set; }
         public virtual DbSet<Game_Stat> Game_Stats { get; set; }
 
+        public virtual DbSet<Match> Matches { get; set; }
+        public virtual DbSet<Match_Stat> Match_Stats { get; set; }
 
+        public virtual DbSet<Player> Players { get; set; }
     }
 
     

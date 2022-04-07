@@ -1,6 +1,7 @@
 using BoardStats.Data;
 using BoardStats.Data.Services;
 using BoardStats.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IGamesService, GamesService>();
 builder.Services.AddScoped<ICollectionService, CollectionService>();
+builder.Services.AddScoped<IPlayersService, PlayersService>();
 
 var app = builder.Build();
 
@@ -35,5 +44,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=Login}/{id?}");
 
+
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+AppDbInitializer.SeedPlayer(app);
 AppDbInitializer.Seed(app);
 app.Run();

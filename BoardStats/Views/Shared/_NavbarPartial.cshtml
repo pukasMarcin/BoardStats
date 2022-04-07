@@ -1,4 +1,9 @@
-﻿    <header>
+﻿    
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> UserManager;
+
+    
+<header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" >
       
               
@@ -19,7 +24,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" asp-controller="Games" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
                                         <a class="dropdown-item" asp-controller="Games" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
-                                        <a class="dropdown-item" asp-controller="Games" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
+                                        <a class="dropdown-item" asp-controller="Players" asp-action="Index"><i class="bi bi-person-square"></i> Gracze</a>
                                     </div>
                                 </li>
                         
@@ -28,7 +33,26 @@
 
                     <form class="form-inline my-2 my-lg-0" asp-controller="Games" asp-action="Filter" style="padding-right: 25px;">
                         <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search" style="color:white"></i></button>
+                        <button class="btn-outline-success-my-2-my-sm-0" type="submit"><i class="bi bi-search" style="color:black"></i></button>
+                    </form>
+                    <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                            aria-expanded="false">
+                        <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                        <li>
+                            <a class="dropdown-item" >
+                                <i class="bi bi-list"></i> Orders
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                 <span style="padding: 5px;"></span>
+                    <form asp-controller="Account" asp-action="Logout">
+                        <button class="btn btn-outline-danger my-2 my-sm-0">
+                            <i class="bi bi-box-arrow-in-right"></i> Log out
+                        </button>
                     </form>
 
                 

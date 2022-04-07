@@ -4,7 +4,7 @@ namespace BoardStats.Data.ViewModels
     public class BoardViewModel
     {
 
-
+        public int holdId { get; set; }
         public string BggId { get; set; }
 
         public string BggRate { get; set; }
@@ -37,6 +37,9 @@ namespace BoardStats.Data.ViewModels
         public List<int> Win_Ids { get; set; }
 
         public List<int> Stat_Ids { get; set; }
+
         public List<StatsVM> statsVM { get; set; }
+
+        public List<WinVM> winVM { get; set; }
     }
 }

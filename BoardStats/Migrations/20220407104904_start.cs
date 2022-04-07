@@ -209,6 +209,29 @@ namespace BoardStats.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Players",
+                columns: table => new
+                {
+                    PlayerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PlayerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PlayerTag = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Players", x => x.PlayerId);
+                    table.ForeignKey(
+                        name: "FK_Players_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Collections",
                 columns: table => new
                 {
@@ -277,6 +300,68 @@ namespace BoardStats.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Matches",
+                columns: table => new
+                {
+                    MatchId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdGame = table.Column<int>(type: "int", nullable: false),
+                    GameName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Duration = table.Column<int>(type: "int", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdWinCon = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Matches", x => x.MatchId);
+                    table.ForeignKey(
+                        name: "FK_Matches_BoardGames_IdGame",
+                        column: x => x.IdGame,
+                        principalTable: "BoardGames",
+                        principalColumn: "IdGame",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Matches_WinCons_IdWinCon",
+                        column: x => x.IdWinCon,
+                        principalTable: "WinCons",
+                        principalColumn: "IdWinCon",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Match_Stats",
+                columns: table => new
+                {
+                    MatchId = table.Column<int>(type: "int", nullable: false),
+                    PlayerId = table.Column<int>(type: "int", nullable: false),
+                    IdStat = table.Column<int>(type: "int", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Match_Stats", x => new { x.IdStat, x.PlayerId, x.MatchId });
+                    table.ForeignKey(
+                        name: "FK_Match_Stats_Matches_MatchId",
+                        column: x => x.MatchId,
+                        principalTable: "Matches",
+                        principalColumn: "MatchId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Match_Stats_Players_PlayerId",
+                        column: x => x.PlayerId,
+                        principalTable: "Players",
+                        principalColumn: "PlayerId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Match_Stats_Stats_IdStat",
+                        column: x => x.IdStat,
+                        principalTable: "Stats",
+                        principalColumn: "IdStat",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -330,6 +415,31 @@ namespace BoardStats.Migrations
                 name: "IX_Game_Wins_GameId",
                 table: "Game_Wins",
                 column: "GameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Match_Stats_MatchId",
+                table: "Match_Stats",
+                column: "MatchId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Match_Stats_PlayerId",
+                table: "Match_Stats",
+                column: "PlayerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Matches_IdGame",
+                table: "Matches",
+                column: "IdGame");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Matches_IdWinCon",
+                table: "Matches",
+                column: "IdWinCon");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Players_UserId",
+                table: "Players",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -359,10 +469,16 @@ namespace BoardStats.Migrations
                 name: "Game_Wins");
 
             migrationBuilder.DropTable(
+                name: "Match_Stats");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Matches");
+
+            migrationBuilder.DropTable(
+                name: "Players");
 
             migrationBuilder.DropTable(
                 name: "Stats");
@@ -372,6 +488,9 @@ namespace BoardStats.Migrations
 
             migrationBuilder.DropTable(
                 name: "WinCons");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

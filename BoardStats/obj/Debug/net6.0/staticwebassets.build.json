@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0tneZauOgnc82+YwMrBp7Vps+SM8A9yA6ZiS5tAIHLA=",
+  "Hash": "5cCjyQPxF6mTCkOjIaN9IiOiDGS/ezJxumOYr8ZfGD8=",
   "Source": "BoardStats",
   "BasePath": "_content/BoardStats",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "D:\\BoardStats\\BoardStats-master\\BoardStats\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BoardStats.bundle.scp.css"
     },
     {
+      "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\css\\bootstrap_table.min.css",
+      "SourceId": "BoardStats",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\",
+      "BasePath": "_content/BoardStats",
+      "RelativePath": "css/bootstrap_table.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootstrap_table.min.css"
+    },
+    {
       "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\css\\jquery-ui.min.css",
       "SourceId": "BoardStats",
       "SourceType": "Discovered",
@@ -1171,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style_form.css"
+    },
+    {
+      "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\css\\style_table.css",
+      "SourceId": "BoardStats",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\",
+      "BasePath": "_content/BoardStats",
+      "RelativePath": "css/style_table.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style_table.css"
     },
     {
       "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\css\\util.css",
@@ -2703,6 +2737,23 @@
       "OriginalItemSpec": "wwwroot\\images\\wizard_v6_icon.png"
     },
     {
+      "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\bootstrap_table.min.js",
+      "SourceId": "BoardStats",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\",
+      "BasePath": "_content/BoardStats",
+      "RelativePath": "js/bootstrap_table.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\bootstrap_table.min.js"
+    },
+    {
       "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\jquery.steps.js",
       "SourceId": "BoardStats",
       "SourceType": "Discovered",
@@ -2718,6 +2769,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\jquery.steps.js"
+    },
+    {
+      "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\jquery_table.min.js",
+      "SourceId": "BoardStats",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\",
+      "BasePath": "_content/BoardStats",
+      "RelativePath": "js/jquery_table.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\jquery_table.min.js"
     },
     {
       "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\jquery-3.3.1.min.js",
@@ -2788,6 +2856,23 @@
       "OriginalItemSpec": "wwwroot\\js\\main_form.js"
     },
     {
+      "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\main_table.js",
+      "SourceId": "BoardStats",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\",
+      "BasePath": "_content/BoardStats",
+      "RelativePath": "js/main_table.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\main_table.js"
+    },
+    {
       "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\notify.min.js",
       "SourceId": "BoardStats",
       "SourceType": "Discovered",
@@ -2803,6 +2888,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\notify.min.js"
+    },
+    {
+      "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\popper_table.js",
+      "SourceId": "BoardStats",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\",
+      "BasePath": "_content/BoardStats",
+      "RelativePath": "js/popper_table.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\popper_table.js"
     },
     {
       "Identity": "D:\\BoardStats\\BoardStats-master\\BoardStats\\wwwroot\\js\\site.js",

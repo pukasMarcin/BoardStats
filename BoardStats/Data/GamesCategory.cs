@@ -7,8 +7,8 @@ namespace BoardStats.Data
 {
     public enum GamesCategory
     {
-        Economic,
-        Wargame,
-        Cooperation
+        Economic =1,
+        Wargame =2,
+        Cooperation=3
     }
 }

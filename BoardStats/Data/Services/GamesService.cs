@@ -39,25 +39,47 @@ namespace BoardStats.Data.Services
 
                 MaxPlayers = data.MaxPlayers,
                 MinPlayers = data.MinPlayers,
-                BggRate = data.BggRate,
-                Category = data.Category,
+                BggRate = data.BggRate.Substring(0, 4),
+                Category = data.Category.ToString(),
                 ImageUrl = data.ImageUrl,
-                
+                BggId = data.BggId,
+                PlayingTime = data.PlayingTime,
+                OrderNumber = 0,
+                IsInCollection = false,
+
+                Expansion = data.Expansion,
+
 
 
             };
+
+            if (NewGame.Expansion == true)
+            {
+                NewGame.MainGame = data.MainGame;
+            }
+            else NewGame.MainGame = NewGame.Name;
+
+
+            if (data.InstructionUrl == null) NewGame.InstructionUrl = "brak";
+            else NewGame.InstructionUrl = data.InstructionUrl;
+
+            if (NewGame.Category == "1") NewGame.Category = "Economic";
+            else if (NewGame.Category == "2") NewGame.Category = "Wargame";
+            else if (NewGame.Category == "3") NewGame.Category = "Cooperation";
+
+            await _db.BoardGames.AddAsync(NewGame);
+
+            await _db.SaveChangesAsync();
 
             var testt = new BoardViewModel()
             {
                 statsVM = data.statsVM,
             };
-            // await _db.BoardGames.Add(NewGame);
 
-            //await _db.SaveChangesAsync();
 
-            int test=99;
 
-            foreach(var item in data.statsVM)
+
+            foreach (var item in data.statsVM)
             {
                 if (item.isChecked == true)
                 {
@@ -68,14 +90,35 @@ namespace BoardStats.Data.Services
 
 
                     };
-                    test = item.StatsId;
+                    await _db.Game_Stats.AddAsync(GameStat);
                 }
-                
-              
+
+
             };
-            // await _db.SaveChangesAsync();
-            test = test;
-            var result = await _db.BoardGames.OrderBy(m => m.Name).ToListAsync();
+            await _db.SaveChangesAsync();
+
+            foreach (var item in data.winVM)
+            {
+                if (item.isChecked == true)
+                {
+                    var GameWin = new Game_Win()
+                    {
+                        GameId = NewGame.IdGame,
+                        WinConId = item.WinId
+
+
+                    };
+                    await _db.Game_Wins.AddAsync(GameWin);
+
+                }
+
+
+            };
+            await _db.SaveChangesAsync();
+
+
+
+
         }
 
         public void Delete(int id)
@@ -83,17 +126,22 @@ namespace BoardStats.Data.Services
             throw new NotImplementedException();
         }
 
-        public async Task <IEnumerable<Boardgames>> GetAll()
+        public async Task<IEnumerable<Boardgames>> GetAll()
         {
-            var result= await _db.BoardGames.OrderBy(m=>m.Name).ToListAsync(); 
+            var result = await _db.BoardGames.OrderBy(m => m.Name).ToListAsync();
             return result;
         }
 
         public Boardgames GetById(int id)
         {
-            var result = _db.BoardGames.Include(wg => wg.Game_Win).ThenInclude(w => w.WinCon).FirstOrDefault(m => m.IdGame == id);
+            var result = _db.BoardGames
+                .Include(wg => wg.Game_Win).ThenInclude(w => w.WinCon)
+                .Include(wg => wg.Game_Stat).ThenInclude(w => w.Stat)
+                .FirstOrDefault(m => m.IdGame == id);
 
-               
+
+
+
             return result;
         }
 
@@ -101,37 +149,40 @@ namespace BoardStats.Data.Services
         {
             var response = new NewGameVM()
             {
-               
-                
+
+
                 WinCons = await _db.WinCons.OrderBy(n => n.WinCondition).ToListAsync(),
                 Stats = await _db.Stats.OrderBy(n => n.Statistic).ToListAsync()
             };
 
-    
 
-     
+
+
 
             return response;
         }
 
 
-        public async Task<List<StatsVM>> GetNewGameDroopdownsValues2()
+        public async Task<List<StatsVM>> GetNewGameDroopdownStats()
         {
-             List<StatsVM>lala = await (from statsObj in _db.Stats
-                                                         select new StatsVM()
-                                                         {
-                                                             StatsId = statsObj.IdStat,
-                                                             Statistic = statsObj.Statistic,
-                                                             isChecked=false
-                                                             
-                                                         }).ToListAsync();
-       
+            List<StatsVM> lala = await (from statsObj in _db.Stats
+                                        select new StatsVM()
+                                        {
+                                            StatsId = statsObj.IdStat,
+                                            Statistic = statsObj.Statistic,
+                                            isChecked = false
 
-            
+                                        }).ToListAsync();
+
+
+
 
 
             return lala;
         }
+
+
+
 
         public BoardViewModel Seeding(string id)
         {
@@ -199,6 +250,7 @@ namespace BoardStats.Data.Services
             keeper.Description = descr;
             keeper.PlayingTime = Int32.Parse(time);
             keeper.ImageUrl = imgUrl;
+            keeper.BggId = id;
             return keeper;
 
 
@@ -213,6 +265,139 @@ namespace BoardStats.Data.Services
             throw new NotImplementedException();
         }
 
-      
+        public async Task<List<WinVM>> GetNewGameDroopdownWins()
+        {
+            List<WinVM> lala = await (from statsObj in _db.WinCons
+                                      select new WinVM()
+                                      {
+                                          WinId = statsObj.IdWinCon,
+                                          Win = statsObj.WinCondition,
+                                          isChecked = false
+
+                                      }).ToListAsync();
+
+
+
+
+
+            return lala;
+        }
+
+
+
+
+        public async Task UpdateGameAsync(BoardViewModel data)
+        {
+
+            var game = await _db.BoardGames.FirstOrDefaultAsync(n => n.IdGame == data.holdId);
+
+
+
+
+            game.Name = data.Name;
+            game.Description = data.Description;
+            game.BestPlayers = data.BestPlayers;
+
+            game.MaxPlayers = data.MaxPlayers;
+            game.MinPlayers = data.MinPlayers;
+            game.BggRate = data.BggRate.Substring(0, 4);
+            game.Category = data.Category.ToString();
+            game.ImageUrl = data.ImageUrl;
+            game.BggId = data.BggId;
+            game.PlayingTime = data.PlayingTime;
+            game.OrderNumber = 0;
+            game.IsInCollection = false;
+
+            game.Expansion = data.Expansion;
+
+
+
+
+            if (data.Expansion == true)
+            {
+                game.MainGame = data.MainGame;
+            }
+
+
+
+            if (data.InstructionUrl == null) game.InstructionUrl = "brak";
+            else game.InstructionUrl = data.InstructionUrl;
+
+            if (data.Category == "1") game.Category = "Economic";
+            else if (data.Category == "2") game.Category = "Wargame";
+            else if (data.Category == "3") game.Category = "Cooperation";
+
+
+            await _db.SaveChangesAsync();
+
+            var exStats = _db.Game_Stats.Where(n => n.GameId == game.IdGame).ToList();
+            var exWins = _db.Game_Wins.Where(n => n.GameId == game.IdGame).ToList();
+
+            _db.Game_Stats.RemoveRange(exStats);
+            await _db.SaveChangesAsync();
+            _db.Game_Wins.RemoveRange(exWins);
+            await _db.SaveChangesAsync();
+
+
+
+            var testt = new BoardViewModel()
+            {
+                statsVM = data.statsVM,
+            };
+
+
+
+
+            foreach (var item in data.statsVM)
+            {
+                if (item.isChecked == true)
+                {
+                    var GameStat = new Game_Stat()
+                    {
+                        GameId = data.holdId,
+                        StatId = item.StatsId
+
+
+                    };
+                    await _db.Game_Stats.AddAsync(GameStat);
+                }
+
+
+            };
+            await _db.SaveChangesAsync();
+
+            foreach (var item in data.winVM)
+            {
+                if (item.isChecked == true)
+                {
+                    var GameWin = new Game_Win()
+                    {
+                        GameId = data.holdId,
+                        WinConId = item.WinId
+
+
+                    };
+                    await _db.Game_Wins.AddAsync(GameWin);
+
+                }
+
+
+            };
+            await _db.SaveChangesAsync();
+
+
+
+
+        }
+
+        public async Task DeleteGameAsync(int Id)
+        {
+
+            var result = await _db.BoardGames.FirstOrDefaultAsync(n => n.IdGame == Id);
+            _db.BoardGames.Remove(result);
+            await _db.SaveChangesAsync();
+
+
+        }
     }
 }

@@ -11,9 +11,11 @@ using BoardStats.Data.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CheckBoxList.Core.Models;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BoardStats.Controllers
 {
+    [Authorize]
     public class GamesController : Controller
     {
 
@@ -28,10 +30,10 @@ namespace BoardStats.Controllers
         public async Task<IActionResult> Index()
         {
 
-            var AllGames = await _serviceBg.GetAll();
-            var AllGames2 = await _serviceCol.GetAll();
+            var allGames = await _serviceBg.GetAll();
+      
             int order = 1;
-            foreach (var item in AllGames)
+            foreach (var item in allGames)
             {
                 item.OrderNumber = order;
                 order++;
@@ -41,8 +43,10 @@ namespace BoardStats.Controllers
 
 
 
-            return View(AllGames);
+            return View(allGames);
         }
+
+       
 
 
         [HttpPost("Test")]
@@ -67,6 +71,8 @@ namespace BoardStats.Controllers
 
             return PartialView("_PopUpGame", Game);
         }
+
+   
 
         public IActionResult AddNewGame()
         {
@@ -128,9 +134,10 @@ namespace BoardStats.Controllers
         {
             BoardViewModel keeper = new BoardViewModel();
             var gameDroop = await _serviceBg.GetNewGameDroopdownsValues();
-            var statsDroop = await _serviceBg.GetNewGameDroopdownsValues2();
+            var statsDroop = await _serviceBg.GetNewGameDroopdownStats();
+            var winDroop = await _serviceBg.GetNewGameDroopdownWins();
 
-           
+          
 
 
 
@@ -140,10 +147,13 @@ namespace BoardStats.Controllers
 
             ViewBag.Stats = new SelectList(gameDroop.Stats, "IdStat", "Statistic");
 
-       
-                keeper = _serviceBg.Seeding(Bgg_Id);
+            var AllGames = await _serviceBg.GetAll();
+            ViewBag.Names = new SelectList(AllGames.Where(m => m.Expansion==false).Select(t => t.Name));
+
+            keeper = _serviceBg.Seeding(Bgg_Id);
 
                 keeper.statsVM = statsDroop;
+            keeper.winVM= winDroop;
 
                 return View("AddNewGame", keeper);
             
@@ -155,8 +165,8 @@ namespace BoardStats.Controllers
         {
             BoardViewModel keeper = new BoardViewModel();
             var gameDroop = await _serviceBg.GetNewGameDroopdownsValues();
-            var statsDroop = await _serviceBg.GetNewGameDroopdownsValues2();
-
+            var statsDroop = await _serviceBg.GetNewGameDroopdownStats();
+            var winDroop = await _serviceBg.GetNewGameDroopdownWins();
 
 
 
@@ -166,11 +176,13 @@ namespace BoardStats.Controllers
             //ViewBag.lala = new SelectList(statsDroop, "StatsId", "Statistic", "isChecked");
 
             ViewBag.Stats = new SelectList(gameDroop.Stats, "IdStat", "Statistic");
+            var AllGames = await _serviceBg.GetAll();
+            ViewBag.Names = new SelectList(AllGames.Where(m => m.Expansion == false).Select(t => t.Name));
 
-          
 
-                keeper.statsVM = statsDroop;
-                return View("AddNewGame", keeper);
+            keeper.statsVM = statsDroop;
+            keeper.winVM = winDroop;
+            return View("AddNewGame", keeper);
             
 
         }
@@ -178,11 +190,117 @@ namespace BoardStats.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(BoardViewModel board)
         {
+           
+
             await _serviceBg.AddNewGameAsync(board);
             return RedirectToAction("Index", "Games");
 
         }
        
+
+        public async Task< IActionResult> Update(int Id)
+        {
+
+            var game = _serviceBg.GetById(Id);
+          
+
+
+            BoardViewModel keeper = new BoardViewModel();
+
+            keeper.Name = game.Name;
+            keeper.holdId = game.IdGame;
+            keeper.BggRate = game.BggRate;
+            keeper.MinPlayers = game.MinPlayers;
+            keeper.MaxPlayers = game.MaxPlayers;
+            keeper.BestPlayers = game.BestPlayers;
+            keeper.Description = game.Description;
+            keeper.PlayingTime = game.PlayingTime;
+            keeper.ImageUrl = game.ImageUrl;
+            keeper.BggId = game.BggId;
+            keeper.InstructionUrl = game.InstructionUrl;
+            keeper.Category=game.Category;  
+            keeper.Expansion=game.Expansion;
+            keeper.MainGame=game.MainGame;
+            keeper.IsInCollection=game.IsInCollection;
+            keeper.OrderNumber=game.OrderNumber;
+            keeper.Stat_Ids=game.Game_Stat.Select(n => n.StatId).ToList();
+            keeper.Win_Ids = game.Game_Win.Select(n => n.WinConId).ToList();
+
+          
+            var statsDroop = await _serviceBg.GetNewGameDroopdownStats();
+            keeper.statsVM = statsDroop;
+            
+            var winDroop = await _serviceBg.GetNewGameDroopdownWins();
+            keeper.winVM = winDroop;
+
+            for (int i = 0; i < keeper.Win_Ids.Count; i++)
+            {
+                for (int j = 0; j < keeper.winVM.Count; j++)
+                {
+                    if (keeper.Win_Ids[i] == keeper.winVM[j].WinId) keeper.winVM[j].isChecked = true;
+                }
+            };
+
+            for (int i = 0; i < keeper.Stat_Ids.Count; i++)
+            {
+                for (int j = 0; j < keeper.statsVM.Count; j++)
+                {
+                    if (keeper.Stat_Ids[i] == keeper.statsVM[j].StatsId) keeper.statsVM[j].isChecked = true;
+                }
+            };
+
+
+
+            var AllGames = await _serviceBg.GetAll();
+            ViewBag.Names = new SelectList(AllGames.Where(m => m.Expansion == false).Select(t => t.Name));
+
+            return View("UpdateGame", keeper);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Update( BoardViewModel board)
+        {
+            await _serviceBg.UpdateGameAsync(board);
+            return RedirectToAction("Index", "Games");
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteGame(int Id)
+        {
+            await _serviceBg.DeleteGameAsync(Id);
+            return RedirectToAction("Index", "Games");
+
+        }
+
+
+        public async Task<IActionResult> Filter(string searchString)
+        {
+
+            var allGames = await _serviceBg.GetAll();
+            int order = 1;
+            foreach (var item in allGames)
+            {
+                item.OrderNumber = order;
+                order++;
+            }
+
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                IEnumerable<Boardgames> filteredResult = allGames.Where(m =>m.Name.ToLower().Contains(searchString.ToLower()) || m.Description.ToLower().Contains(searchString.ToLower())).ToList();
+                int order2 = 1;
+                foreach (var item in filteredResult)
+                {
+                    item.OrderNumber = order2;
+                    order2++;
+                }
+
+                return View("Index",filteredResult);
+            }
+            return View("Index",allGames);
+        }
 
     }
 }
