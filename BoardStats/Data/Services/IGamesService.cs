@@ -13,10 +13,19 @@ namespace BoardStats.Data.Services
         Boardgames Update(int id, Boardgames newGame);
         void Delete(int id);
         Task<NewGameVM> GetNewGameDroopdownsValues();
-        Task<List<StatsVM>> GetNewGameDroopdownsValues2();
+        Task<List<StatsVM>> GetNewGameDroopdownStats();
 
+       
+
+        Task<List<WinVM>> GetNewGameDroopdownWins();
+
+        
         Task AddNewGameAsync(BoardViewModel data);
 
-       BoardViewModel Seeding(string id);
+        Task UpdateGameAsync(BoardViewModel data);
+
+        Task DeleteGameAsync(int Id);
+
+        BoardViewModel Seeding(string id);
     }
 }

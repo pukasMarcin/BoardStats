@@ -153,6 +153,23 @@ namespace BoardStats.Migrations
                     b.ToTable("BoardGames");
                 });
 
+            modelBuilder.Entity("BoardStats.Models.Challange", b =>
+                {
+                    b.Property<int>("ChallangeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChallangeId"), 1L, 1);
+
+                    b.Property<string>("ChallangeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ChallangeId");
+
+                    b.ToTable("Challanges");
+                });
+
             modelBuilder.Entity("BoardStats.Models.Collection", b =>
                 {
                     b.Property<int>("IdColl")
@@ -208,6 +225,135 @@ namespace BoardStats.Migrations
                     b.ToTable("Game_Wins");
                 });
 
+            modelBuilder.Entity("BoardStats.Models.Match", b =>
+                {
+                    b.Property<int>("MatchId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"), 1L, 1);
+
+                    b.Property<int>("ChallangeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GameName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdGame")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdWinCon")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdWinner")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WhoWIn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isChallange")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MatchId");
+
+                    b.HasIndex("ChallangeId");
+
+                    b.HasIndex("IdGame");
+
+                    b.HasIndex("IdWinCon");
+
+                    b.ToTable("Matches");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Match_Player", b =>
+                {
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MatchId", "PlayerId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("Match_Players");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Match_Stat", b =>
+                {
+                    b.Property<int>("IdStat")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdStat", "PlayerId", "MatchId");
+
+                    b.HasIndex("MatchId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("Match_Stats");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Player", b =>
+                {
+                    b.Property<int>("PlayerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PlayerId"), 1L, 1);
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PlayerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlayerTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PlayerId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Players");
+                });
+
             modelBuilder.Entity("BoardStats.Models.Stat", b =>
                 {
                     b.Property<int>("IdStat")
@@ -215,6 +361,10 @@ namespace BoardStats.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdStat"), 1L, 1);
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StatCategory")
                         .IsRequired()
@@ -428,6 +578,90 @@ namespace BoardStats.Migrations
                     b.Navigation("WinCon");
                 });
 
+            modelBuilder.Entity("BoardStats.Models.Match", b =>
+                {
+                    b.HasOne("BoardStats.Models.Challange", "Challange")
+                        .WithMany()
+                        .HasForeignKey("ChallangeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.Boardgames", "Game")
+                        .WithMany()
+                        .HasForeignKey("IdGame")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.WinCon", "win")
+                        .WithMany()
+                        .HasForeignKey("IdWinCon")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Challange");
+
+                    b.Navigation("Game");
+
+                    b.Navigation("win");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Match_Player", b =>
+                {
+                    b.HasOne("BoardStats.Models.Match", "Match")
+                        .WithMany("Match_Player")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.Player", "Player")
+                        .WithMany("Match_Player")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Match_Stat", b =>
+                {
+                    b.HasOne("BoardStats.Models.Stat", "Stat")
+                        .WithMany("Match_Stat")
+                        .HasForeignKey("IdStat")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.Match", "Match")
+                        .WithMany("Match_Stat")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.Player", "Player")
+                        .WithMany("Match_Stat")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("Player");
+
+                    b.Navigation("Stat");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Player", b =>
+                {
+                    b.HasOne("BoardStats.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -486,9 +720,25 @@ namespace BoardStats.Migrations
                     b.Navigation("Game_Win");
                 });
 
+            modelBuilder.Entity("BoardStats.Models.Match", b =>
+                {
+                    b.Navigation("Match_Player");
+
+                    b.Navigation("Match_Stat");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Player", b =>
+                {
+                    b.Navigation("Match_Player");
+
+                    b.Navigation("Match_Stat");
+                });
+
             modelBuilder.Entity("BoardStats.Models.Stat", b =>
                 {
                     b.Navigation("Game_Stat");
+
+                    b.Navigation("Match_Stat");
                 });
 
             modelBuilder.Entity("BoardStats.Models.WinCon", b =>

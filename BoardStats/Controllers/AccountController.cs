@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BoardStats.Data.ViewModels;
 using BoardStats.Utility;
+using BoardStats.Data.Services;
 
 namespace BoardStats.Controllers
 {
@@ -22,14 +23,16 @@ namespace BoardStats.Controllers
         RoleManager<IdentityRole> _roleManager;
 
         private readonly ApplicationDbContext _db;
+        private readonly IPlayersService _service;
 
         public AccountController(ApplicationDbContext db, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser>
-              signInManager, RoleManager<IdentityRole> roleManager)
+              signInManager, RoleManager<IdentityRole> roleManager, IPlayersService service)
         {
             _db = db;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _service = service;
 
         }
 
@@ -76,6 +79,8 @@ namespace BoardStats.Controllers
                 {
                     await _userManager.AddToRoleAsync(user, RoleHelper.User);
                     await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    await _service.AddNewPlayerAsync(user.UserName);
                     return RedirectToAction("Login", "Account");
                 }
                 foreach (var error in result.Errors)
@@ -111,7 +116,7 @@ namespace BoardStats.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Logoff()
+        public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");

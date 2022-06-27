@@ -1,0 +1,120 @@
+﻿@model List<Match>
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	
+	<link rel="stylesheet" href="~/css/style_table.css">
+
+
+	
+	<link rel="stylesheet" type="text/css" href="~/css/main.css">
+	<link rel="stylesheet" href="~/css/Style.css">
+
+	</head>
+	<body>
+
+      
+
+
+<header>
+
+                        <partial name="_NavbarPartial"/>
+
+</header>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Historia gier</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                         <th>User Name</th>
+                    }
+						      <th>Match Date</th>
+						    
+						      <th>Game</th>
+						      <th>Winner</th>
+							  <th>Actions</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+							  @foreach(var item in Model)
+							  {
+								 
+								    <tr class="alert" role="alert">
+									
+						     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+						     { 
+								 <td>@item.UserName</td>
+							 
+							 }
+								 <td>@item.StartDate</td>
+							 
+							
+						     
+						      <td>@item.GameName</td>
+							  
+
+							   
+						      
+						      <td>@item.WhoWIn</td>
+						
+							 <td>
+								 <div type="button" class="text-black" data-toggle="ajax-modal" data-target="#Boardgames" data-url="@Url.Action("PopUpWindowUpdatePlayer", "Players",new {Id=1})">Update</div>
+								 <div type="button" class="text-black" data-toggle="ajax-modal" data-target="#Boardgames" data-url="@Url.Action("PopUpWindowDeleteMatch", "Matches",new {Id=@item.MatchId})">Delete</div>
+							 </td>
+							  
+						    
+						  
+						    </tr>
+								  
+							  
+							}
+						  
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+<div type="button" style="position: fixed; right: 25px; bottom: 25px;" class="text-white" onclick="location.href='@Url.Action("AddMatch", "Matches")'">
+	<button class="btn btn-info" type="button" >
+
+		 <i class="bi bi-plus-circle"></i> Add match </button>
+		 </div>
+
+
+		 <div class="plHolder" id="PlaceHolder"></div>
+	</section>
+
+	<script src="~/js/jquery_table.min.js"></script>
+  <script src="~/js/popper_table.js"></script>
+  <script src="~/js/bootstrap_table.min.js"></script>
+  <script src="~/js/main_table.js"></script>
+   <script src="~/js/site.js"></script>
+
+	</body>
+</html>
+

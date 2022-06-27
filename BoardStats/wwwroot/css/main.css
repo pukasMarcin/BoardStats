@@ -626,7 +626,8 @@ iframe {
 		border-radius: 0 0 2px 2px;
 		background-clip: padding-box;
 		box-sizing: border-box;
-		color:white;
+		height: 100.19px;
+		color: white;
 	}
 
 		.card .card-content p {
@@ -653,7 +654,7 @@ iframe {
 		
 		.card .card-action span {
 			color: #ffffff;
-			
+			font-size:13px;
 			transition: color 0.3s ease;
 		}
 		.card .card-action a {

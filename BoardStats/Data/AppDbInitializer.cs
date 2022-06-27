@@ -1,10 +1,114 @@
 ﻿using BoardStats.Models;
+using BoardStats.Utility;
+using Microsoft.AspNetCore.Identity;
 
 namespace BoardStats.Data
 {
     public class AppDbInitializer
     {
 
+
+        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+
+                //Roles
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (!await roleManager.RoleExistsAsync(RoleHelper.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(RoleHelper.Admin));
+                if (!await roleManager.RoleExistsAsync(RoleHelper.User))
+                    await roleManager.CreateAsync(new IdentityRole(RoleHelper.User));
+
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                string adminUserEmail = "marcin.pukas_admin@gmail.com";
+
+                var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                if (adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+
+                        UserName = "Admin_AF",
+                        Email = adminUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAdminUser, "!123Qwe");
+                    await userManager.AddToRoleAsync(newAdminUser, RoleHelper.Admin);
+                }
+
+
+                string appUserEmail = "marcin.pukas@gmail.com";
+
+                var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+
+                        UserName = "AvadaFeedavra",
+                        Email = appUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "!123Qwe");
+                    await userManager.AddToRoleAsync(newAppUser, RoleHelper.User);
+                }
+            }
+        }
+
+        public static void SeedPlayer(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+
+
+                context.Database.EnsureCreated();
+                var user = context.Users.FirstOrDefault(n => n.UserName == "AvadaFeedavra");
+
+                //Cinema
+                if (!context.Players.Any())
+                {
+                    context.Players.AddRange(new List<Player>()
+                    {
+                        new Player()
+                        {
+
+                            PlayerName="AvadaFeedavra",
+
+                            PlayerTag ="Rookie",
+
+                            IsActive = true,
+
+                            UserId=user.Id,
+
+                            UserName =user.UserName,
+                        },
+
+                          new Player()
+                        {
+
+                            PlayerName="Testowy",
+
+                            PlayerTag ="Rookie",
+
+                            IsActive = true,
+
+                            UserId=user.Id,
+
+                            UserName =user.UserName,
+                        }
+
+
+                    });
+                    context.SaveChanges();
+                }
+
+            }
+
+        }
         public static void Seed(IApplicationBuilder applicationBuilder)
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
@@ -13,8 +117,20 @@ namespace BoardStats.Data
 
 
                 context.Database.EnsureCreated();
+                var user = context.Users.FirstOrDefault(n => n.UserName == "AvadaFeedavra");
 
 
+                if(!context.Challanges.Any())
+                {
+                    context.Challanges.AddRange(new List<Challange>()
+                    {
+                        new Challange()
+                        {
+                            ChallangeName="Testowy"
+                        }
+                    });
+                    context.SaveChanges();
+                }
                 //Cinema
                 if (!context.BoardGames.Any())
                 {
@@ -69,7 +185,7 @@ namespace BoardStats.Data
                             BestPlayers= 2,
                             PlayingTime= 30,
                             Expansion=true,
-                            MainGame="7 cudów świata",
+                            MainGame="7 cudów świata - Pojedynek",
                             Category=GamesCategory.Economic.ToString(),
                              OrderNumber=0,
                              InstructionUrl="https://repository.rebel.pl/files/instrukcje/7%20cudow%20swiata%20pojedynek%20panteon%20PL.pdf"
@@ -312,39 +428,45 @@ namespace BoardStats.Data
                         new Stat()
                         {
                             Statistic="Punktacja",
-                            StatCategory="Punktacja"
+                            StatCategory="Punktacja",
+                            Category ="Player"
 
                         },
 
                          new Stat()
                         {
                             Statistic="Żywność",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
 
                            new Stat()
                         {
                             Statistic="Ludzie",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
                           new Stat()
                         {
                             Statistic="Paliwo",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
                           new Stat()
                         {
                             Statistic="Morale",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
                               new Stat()
                         {
                             Statistic="Siła militarna",
-                            StatCategory="Militaria"
+                            StatCategory="Militaria",
+                            Category ="Player"
 
                         },
 
@@ -355,6 +477,34 @@ namespace BoardStats.Data
 
                 }
 
+                if (!context.Matches.Any())
+                {
+                    context.Matches.AddRange(new List<Match>()
+                    {
+
+                        new Match()
+                        {
+                           IdGame=2,
+                           GameName="7 cudów świata - Pojedynek",
+                           StartDate=DateTime.Now,
+                           Duration=60,
+                           UserName="AvadaFeedavra",
+                           IdWinCon=2,
+                           WhoWIn="AvadaFeedavra",
+                           IdWinner = 1,
+                           UserId = user.Id,
+                           ChallangeId=1,
+
+                        },
+
+                       
+                     
+
+
+                    });
+                    context.SaveChanges();
+
+                }
                 if (!context.Game_Stats.Any())
                 {
                     context.Game_Stats.AddRange(new List<Game_Stat>()
@@ -457,7 +607,86 @@ namespace BoardStats.Data
 
 
                 }
+
+                if (!context.Match_Stats.Any())
+                {
+                    context.Match_Stats.AddRange(new List<Match_Stat>()
+                    {
+
+                        new Match_Stat()
+                        {
+                           MatchId=1,
+                           PlayerId=1,
+                           IdStat=6,
+                           Value="5"
+
+                        },
+                          new Match_Stat()
+                        {
+                           MatchId=1,
+                           PlayerId=1,
+                           IdStat=1,
+                           Value="20"
+
+                        },
+
+                                 new Match_Stat()
+                        {
+                           MatchId=1,
+                           PlayerId=2,
+                           IdStat=6,
+                           Value="2"
+
+                        },
+                          new Match_Stat()
+                        {
+                           MatchId=1,
+                           PlayerId=2,
+                           IdStat=1,
+                           Value="33"
+
+                        },
+
+
+
+
+                  });
+                    context.SaveChanges();
+
+
+                }
+
+                if(!context.Match_Players.Any())
+                {
+                    context.Match_Players.AddRange(new List<Match_Player>()
+                    {
+
+                        new Match_Player()
+                        {
+                           MatchId=1,
+                           PlayerId=1,
+                           
+
+                        },
+
+                         new Match_Player()
+                        {
+                           MatchId=1,
+                           PlayerId=2,
+
+
+                        },
+
+                     });
+
+                    context.SaveChanges();
+                }
             }
         }
+
+       
+
+
+      
     }
 }

@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model Match
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+	  <form  method="post" class="form-register" id="form-register">
+      <div class="modal-content">
+       
+        <div class="modal-body">
+         
+		        
+			  @Html.HiddenFor(m => Model.MatchId, new {Value=@Model.MatchId})
+											
+
+							Czy na pewno chcesz usunąć te rozgrywkę ?
+								
+			
+					
+
+
+						
+
+						
+
+						
+						
+		        
+		        
+        </div>
+        <div class="modal-footer">
+			<div class="form-row">
+									
+							
+						<button class="btn btn-danger "  type="submit" asp-action="Delete" asp-controller="Matches" >Delete</button>
+					 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						
+						</div>
+         
+        </div>
+      </div>
+	  </form>
+      
+    </div>
+  </div>
+
+  
+

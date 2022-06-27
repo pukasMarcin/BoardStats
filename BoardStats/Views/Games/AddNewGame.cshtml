@@ -128,7 +128,7 @@
 								<div class="form-row">
 									<div class="form-holder">
 										<label class="form-row-inner">
-											<input type="text" class="form-control" name="Name" asp-for="Name">
+											<input type="text" class="form-control" name="Name" asp-for="Name" placeholder="Name of game" required>
 											<span class="label">Name of game</span>
 										</label>
 									</div>
@@ -160,7 +160,7 @@
 										<div class="form-row">
 									<div class="form-holder">
 										<label class="form-row-inner">
-											<input type="text" class="form-control" name="Time" asp-for="PlayingTime">
+											<input type="text" class="form-control" name="PlayingTime" asp-for="PlayingTime">
 											<span class="label">Time of playing</span>
 										</label>
 									</div>
@@ -175,6 +175,12 @@
 
 						
 								
+								<div class="form-row">
+							
+						<button class="btn btn-success " style="position: relative; left: 10px;" type="submit" >Dodaj</button>
+					
+						
+						</div>
 
 
 
@@ -188,7 +194,7 @@
 			            <section>
 			                <div class="inner">
 			                	<div class="form-heading">
-			                		<h3>Opis/h3>
+			                		<h3>Opis</h3> 
 			                		<span>2/3</span>
 			                	</div>
 		                
@@ -218,14 +224,7 @@
 
 									<div class="form-row">
 									 
-                               <div class="form-holder">
-										<label class="form-row-inner">
-                                <select asp-for="Category" name="Category" class="form-control" asp-items="Html.GetEnumSelectList<GamesCategory>()"></select>
-									<span class="label">Category</span>
-
-											
-										</label>
-									  </div>
+                             
 
 									  	<div class="form-holder">
 										<label class="form-row-inner">
@@ -236,9 +235,27 @@
 												
 										</label>
 									</div>
+
+									 <div class="form-holder">
+										<label class="form-row-inner">
+                                <select asp-for="Category" name="Category" class="form-control" asp-items="Html.GetEnumSelectList<GamesCategory>()"></select>
+									<span class="label">Category</span>
+
+											
+										</label>
+									  </div>
                              
                             </div>
-				
+
+					
+
+					  <div class="form-row">
+							
+						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" >Dodaj</button>
+					
+						
+						</div>
+
 
 									
 							</div>
@@ -263,7 +280,23 @@
 			                	</div>
 			
 
-					
+					<div id="radioButtonDiv" >
+    @Html.LabelFor(model => model.Expansion) <p style="color:white"> Czy gra jest dodatkiem? <p>
+    <div>
+        @Html.RadioButtonFor(model => model.Expansion, true, new { Value= @Model.Expansion})  <p style="color:white"> Tak <p>
+        @Html.RadioButtonFor(model => model.Expansion, false, new { Value= @Model.Expansion}) <p style="color:white"> Nie <p>
+    </div>
+</div>
+
+
+<div class="form-holder">
+										<label class="form-row-inner">
+                                <select asp-for="MainGame" name="MainGame" class="form-control" asp-items="@ViewBag.Names" ></select>
+									<span class="label">Wybierz główną gre</span>
+
+											
+										</label>
+									  </div>
 
 
                            <div id="list" class="dropdown-check-list" tabindex="100" asp-for="statsVM" name="statsVM">
@@ -292,17 +325,48 @@
 
 
 
+                           <div id="list2" class="dropdown-check-list" tabindex="100" asp-for="winVM" name="winVM">
+							   
+    <span class="anchor">Select Categories</span>
+    <ul class="items">
+        @for(int i =0; i< @Model.winVM.Count;i++)
+        {
+            <li>
+                
+				  @Html.CheckBoxFor(m => @Model.winVM[i].isChecked)  @Model.winVM[i].Win
+				
+               @Html.HiddenFor(m => m.winVM[i].Win, new {Value= @Model.winVM[i].Win})
 
+			    @Html.HiddenFor(m => m.winVM[i].WinId, new {Value= @Model.winVM[i].WinId})
+               
+				
+            </li>
+
+
+
+        }
+		
+    </ul>
+</div>
+
+
+
+
+@Html.HiddenFor(m => Model.BggId, new {Value= @Model.BggId})
 
 	<div class="form-row">
 							
 						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" >Dodaj</button>
-					
+					 
 						
 						</div>
 
 
+
+						 
+
 							</div>
+							<div class="plHolder" id="PlaceHolder"></div>
 			            </section>
 
 
@@ -317,6 +381,7 @@
 	<script src="~/js/jquery.steps.js"></script>
 	<script src="~/js/jquery-ui.min.js"></script>
 	<script src="~/js/main.js"></script>
+
 </body>
 
 
@@ -325,6 +390,19 @@
  <script>
         $(function () {
             var checkList = document.getElementById('list');
+            checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+                if (checkList.classList.contains('visible'))
+                    checkList.classList.remove('visible');
+                else
+                    checkList.classList.add('visible');
+            }
+        })
+    </script>
+
+
+	 <script>
+        $(function () {
+            var checkList = document.getElementById('list2');
             checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
                 if (checkList.classList.contains('visible'))
                     checkList.classList.remove('visible');

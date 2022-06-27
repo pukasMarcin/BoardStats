@@ -247,6 +247,19 @@ body {
 
 }
 
+    .inner .form-row .form-holder22 {
+        width: 80%;
+        padding: 0 15px;
+        position: relative;
+    }
+
+    .inner .form-row .form-holder23 {
+        width: 80%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        position: relative;
+    }
+
 .img-center {
     display: -webkit-box;
     display: -webkit-flex;
@@ -360,6 +373,10 @@ body {
 .dropdown-check-list {
     display: inline-block;
 }
+.dropdown-check-list2 {
+    display: inline-block;
+    width: 80%;
+}
 
     .dropdown-check-list .anchor {
         position: relative;
@@ -369,6 +386,16 @@ body {
         border: 1px solid #ccc;
         color: white
     }
+    .dropdown-check-list2 .anchor {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        padding: 5px 50px 5px 10px;
+        border: 1px solid #ccc;
+        color: white;
+        
+    }
+
 
         .dropdown-check-list .anchor:after {
             position: absolute;
