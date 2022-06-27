@@ -39,12 +39,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZXNcVXBkYXRlR2FtZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Games/_PopUpWindowNewWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZXNcX1BvcFVwV2luZG93TmV3V2luQ29uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BoardStats/BoardStats-master/BoardStats/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BoardStats/BoardStats-master/BoardStats/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Matches/AddMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xBZGRNYXRjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Matches/AddMatch2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xBZGRNYXRjaDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Matches/AddMatch3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xBZGRNYXRjaDMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Matches/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Matches/_PopUpWindowDeleteMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xfUG9wVXBXaW5kb3dEZWxldGVNYXRjaC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BoardStats/BoardStats-master/BoardStats/Views/Players/AddPlayer.cshtml]
@@ -81,6 +105,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BoardStats/BoardStats-master/BoardStats/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Stats/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/Stats/_PopUpWindowNewStat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHNcX1BvcFVwV2luZG93TmV3U3RhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/WinCons/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/WinCons/_PopUpWindowDeleteWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xfUG9wVXBXaW5kb3dEZWxldGVXaW5Db24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/WinCons/_PopUpWindowNewWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xfUG9wVXBXaW5kb3dOZXdXaW5Db24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/BoardStats-master/BoardStats/Views/WinCons/_PopUpWindowUpdateWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xfUG9wVXBXaW5kb3dVcGRhdGVXaW5Db24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BoardStats/BoardStats-master/BoardStats/Views/_ViewImports.cshtml]

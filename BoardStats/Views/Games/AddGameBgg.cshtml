@@ -66,9 +66,9 @@
 </header>
 
 	<div class="page-content">
-		<div class="wizard-heading">Podaj Bggggg ID</div>
+		
 	
-		<div class="wizard-v6-content-mine">
+		<div class="wizard-v6-content-mine" style="position: relative; top: 100px;">
 			<div class="wizard-form">
 		        <form class="form-register" id="form-register" method="post">
 		        	<div id="form-total">
@@ -100,11 +100,17 @@
 						</div>
 
 						<div class="form-row">
-							
-						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" asp-action="CheckBgg" asp-controller="Games">Dodaj</button>
+							<button class="btn btn-primary " style="position: relative; left: 50px;" type="submit" asp-action="NoBgg" asp-controller="Games" >Brak ID</button>
+
+						<button class="btn btn-success " style="position: relative; left: 250px;" type="submit" asp-action="CheckBgg" asp-controller="Games">Dodaj</button>
 					
-						<button class="btn btn-primary " style="position: relative; left: 250px;" type="submit" asp-action="NoBgg" asp-controller="Games" >Brak ID</button>
+						
 						</div>
+						Dodając do kolekcji nową grę, możesz wtkorzystać istniejącą baze BoardGameGeek do automatycznego zaciągnięcia większości potrzebnych danych.
+						W tym celu wystarczy wprowadzić ID gry, które można znaleźć w linku ze strony BGG (analogicznie jak w linku poniżej).
+						<img  src="~/images/bgg_id.png"/>
+
+
 
 							</div>
 							

@@ -23,7 +23,7 @@ namespace BoardStats.Models
                 am.GameId
             });
 
-            modelBuilder.Entity<Game_Win> ().HasOne(m => m.Game).WithMany(am => am.Game_Win).HasForeignKey(m => m.GameId);
+            modelBuilder.Entity<Game_Win>().HasOne(m => m.Game).WithMany(am => am.Game_Win).HasForeignKey(m => m.GameId);
             modelBuilder.Entity<Game_Win>().HasOne(m => m.WinCon).WithMany(am => am.Game_Win).HasForeignKey(m => m.WinConId);
 
 
@@ -41,14 +41,26 @@ namespace BoardStats.Models
             modelBuilder.Entity<Match_Stat>().HasKey(am => new
             {
                 am.IdStat,
-                 am.PlayerId,
+                am.PlayerId,
                 am.MatchId
-               
+
             });
 
             modelBuilder.Entity<Match_Stat>().HasOne(m => m.Match).WithMany(am => am.Match_Stat).HasForeignKey(m => m.MatchId);
-            modelBuilder.Entity<Match_Stat>().HasOne(m => m.Player).WithMany(am => am.Match_Stat).HasForeignKey(m =>m.PlayerId);
+            modelBuilder.Entity<Match_Stat>().HasOne(m => m.Player).WithMany(am => am.Match_Stat).HasForeignKey(m => m.PlayerId);
             modelBuilder.Entity<Match_Stat>().HasOne(m => m.Stat).WithMany(am => am.Match_Stat).HasForeignKey(m => m.IdStat);
+
+            modelBuilder.Entity<Match_Player>().HasKey(m => new
+
+            {
+                m.MatchId,
+                m.PlayerId
+
+
+            });
+
+            modelBuilder.Entity<Match_Player>().HasOne(m => m.Match).WithMany(m => m.Match_Player).HasForeignKey(m => m.MatchId);
+            modelBuilder.Entity<Match_Player>().HasOne(m => m.Player).WithMany(m => m.Match_Player).HasForeignKey(m => m.PlayerId);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -67,6 +79,8 @@ namespace BoardStats.Models
         public virtual DbSet<Match_Stat> Match_Stats { get; set; }
 
         public virtual DbSet<Player> Players { get; set; }
+        public virtual DbSet<Challange> Challanges { get; set; }
+        public virtual DbSet<Match_Player> Match_Players { get; set; }
     }
 
     

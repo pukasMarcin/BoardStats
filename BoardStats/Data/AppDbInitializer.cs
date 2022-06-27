@@ -117,8 +117,20 @@ namespace BoardStats.Data
 
 
                 context.Database.EnsureCreated();
+                var user = context.Users.FirstOrDefault(n => n.UserName == "AvadaFeedavra");
 
 
+                if(!context.Challanges.Any())
+                {
+                    context.Challanges.AddRange(new List<Challange>()
+                    {
+                        new Challange()
+                        {
+                            ChallangeName="Testowy"
+                        }
+                    });
+                    context.SaveChanges();
+                }
                 //Cinema
                 if (!context.BoardGames.Any())
                 {
@@ -173,7 +185,7 @@ namespace BoardStats.Data
                             BestPlayers= 2,
                             PlayingTime= 30,
                             Expansion=true,
-                            MainGame="7 cudów świata",
+                            MainGame="7 cudów świata - Pojedynek",
                             Category=GamesCategory.Economic.ToString(),
                              OrderNumber=0,
                              InstructionUrl="https://repository.rebel.pl/files/instrukcje/7%20cudow%20swiata%20pojedynek%20panteon%20PL.pdf"
@@ -416,39 +428,45 @@ namespace BoardStats.Data
                         new Stat()
                         {
                             Statistic="Punktacja",
-                            StatCategory="Punktacja"
+                            StatCategory="Punktacja",
+                            Category ="Player"
 
                         },
 
                          new Stat()
                         {
                             Statistic="Żywność",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
 
                            new Stat()
                         {
                             Statistic="Ludzie",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
                           new Stat()
                         {
                             Statistic="Paliwo",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
                           new Stat()
                         {
                             Statistic="Morale",
-                            StatCategory="Zasoby"
+                            StatCategory="Zasoby",
+                            Category ="Game"
 
                         },
                               new Stat()
                         {
                             Statistic="Siła militarna",
-                            StatCategory="Militaria"
+                            StatCategory="Militaria",
+                            Category ="Player"
 
                         },
 
@@ -471,7 +489,11 @@ namespace BoardStats.Data
                            StartDate=DateTime.Now,
                            Duration=60,
                            UserName="AvadaFeedavra",
-                           IdWinCon=2
+                           IdWinCon=2,
+                           WhoWIn="AvadaFeedavra",
+                           IdWinner = 1,
+                           UserId = user.Id,
+                           ChallangeId=1,
 
                         },
 
@@ -632,6 +654,32 @@ namespace BoardStats.Data
                     context.SaveChanges();
 
 
+                }
+
+                if(!context.Match_Players.Any())
+                {
+                    context.Match_Players.AddRange(new List<Match_Player>()
+                    {
+
+                        new Match_Player()
+                        {
+                           MatchId=1,
+                           PlayerId=1,
+                           
+
+                        },
+
+                         new Match_Player()
+                        {
+                           MatchId=1,
+                           PlayerId=2,
+
+
+                        },
+
+                     });
+
+                    context.SaveChanges();
                 }
             }
         }

@@ -18,6 +18,8 @@ namespace BoardStats.Models
         public string Statistic { get; set; }
         
         public string StatCategory { get; set; }
+
+        public string Category { get; set; }
         public List<Game_Stat> Game_Stat { get; set; }
         public List<Match_Stat> Match_Stat { get; set; }
 

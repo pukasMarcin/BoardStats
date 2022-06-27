@@ -1607,7 +1607,7 @@ span.multiselect-native-select {
     display: inline-block;
     padding: 8px 12px;
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.42857143;
     text-align: center;
@@ -2116,8 +2116,8 @@ pre {
 }
 
 .plHolder {
-   position:absolute;
-   top:100px
+   position:center;
+   top:200px
 }
 
 
@@ -3209,12 +3209,14 @@ output {
     color: #555
 }
 
+
+
 .form-control {
     display: block;
     width: 100%;
     height: 34px;
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.42857143;
     color: #555;
     background-color: #fff;
@@ -3672,9 +3674,9 @@ select[multiple].input-lg, textarea.input-lg {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.42857143;
+    line-height: 1.5;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -3686,9 +3688,84 @@ select[multiple].input-lg, textarea.input-lg {
     -ms-user-select: none;
     user-select: none;
     background-image: none;
+    background-color: transparent;
     border: 1px solid transparent;
-    border-radius: 4px
+    border-radius: 4px;
+    -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
+
+
+.btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+}
+    .btn-outline-success:hover {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-outline-success:focus, .btn-outline-success.focus {
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+    }
+
+    .btn-outline-success.disabled, .btn-outline-success:disabled {
+        color: #28a745;
+        background-color: transparent;
+    }
+
+    .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,
+    .show > .btn-outline-success.dropdown-toggle {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+        .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-outline-success.dropdown-toggle:focus {
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+        }
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+    .btn-outline-danger:hover {
+        color: white;
+        background-color: #dc3545;
+        border-color: #dc3545;
+        
+    
+    }
+    .btn-outline-danger:focus, .btn-outline-danger.focus {
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+       
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+    }
+
+    .btn-outline-danger.disabled, .btn-outline-danger:disabled {
+        color: #dc3545;
+        background-color: transparent;
+    }
+
+    .btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active,
+    .show > .btn-outline-danger.dropdown-toggle {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .btn-outline-danger:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-outline-danger.dropdown-toggle:focus {
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+        }
 
     .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
         outline: thin dotted;
@@ -3697,7 +3774,7 @@ select[multiple].input-lg, textarea.input-lg {
     }
 
     .btn.focus, .btn:focus, .btn:hover {
-        color: #333;
+        
         text-decoration: none
     }
 
@@ -6441,11 +6518,11 @@ button.close {
 }
 
 .modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    position:fixed;
+    top:200px;
+    left:650px;
+   
+  
     z-index: 1050;
     display: none;
     overflow: hidden;
@@ -6516,10 +6593,15 @@ button.close {
         opacity: .5
     }
 
+.bi bi-x-circle:hover{
+    cursor:pointer;
+}
 .modal-header {
     min-height: 16.43px;
     padding: 15px;
-    border-bottom: 1px solid #e5e5e5
+    border-bottom: 1px solid #e5e5e5;
+    background-color: black;
+    color: white;
 }
 
     .modal-header .close {
@@ -6540,7 +6622,7 @@ button.close {
     margin-top:350px;
     padding: 15px;
     text-align: right;
-    border-top: 1px solid #e5e5e5
+    
 }
 
     .modal-footer .btn + .btn {

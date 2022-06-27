@@ -22,6 +22,9 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IGamesService, GamesService>();
 builder.Services.AddScoped<ICollectionService, CollectionService>();
 builder.Services.AddScoped<IPlayersService, PlayersService>();
+builder.Services.AddScoped<IMatchesServices, MatchesServices>();
+builder.Services.AddScoped<IWinConService, WinConService>();
+builder.Services.AddScoped<IStatsService, StatsService>();
 
 var app = builder.Build();
 

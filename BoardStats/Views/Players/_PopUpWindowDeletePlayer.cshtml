@@ -9,13 +9,11 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
+	  <form  method="post" class="form-register" id="form-register">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
+       
         <div class="modal-body">
-          <form  method="post" class="form-register" id="form-register">
+         
 		        
 			  @Html.HiddenFor(m => Model.PlayerTag, new {Value=@Model.PlayerTag})
 											@Html.HiddenFor(m => Model.UserName, new {Value=@Model.UserName})
@@ -31,23 +29,25 @@
 
 						
 
-						<div class="form-row">
-									
-							
-						<button class="btn btn-success " style="position: relative; left: 50px;" type="submit" asp-action="Delete" asp-controller="Players" >Delete</button>
-					
 						
-						</div>
 
 						
 						
 		        
-		        </form>
+		        
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<div class="form-row">
+									
+							
+						<button class="btn btn-danger "  type="submit" asp-action="Delete" asp-controller="Players" >Delete</button>
+					 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						
+						</div>
+         
         </div>
       </div>
+	  </form>
       
     </div>
   </div>

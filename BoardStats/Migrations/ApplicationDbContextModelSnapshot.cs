@@ -153,6 +153,23 @@ namespace BoardStats.Migrations
                     b.ToTable("BoardGames");
                 });
 
+            modelBuilder.Entity("BoardStats.Models.Challange", b =>
+                {
+                    b.Property<int>("ChallangeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChallangeId"), 1L, 1);
+
+                    b.Property<string>("ChallangeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ChallangeId");
+
+                    b.ToTable("Challanges");
+                });
+
             modelBuilder.Entity("BoardStats.Models.Collection", b =>
                 {
                     b.Property<int>("IdColl")
@@ -216,6 +233,9 @@ namespace BoardStats.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"), 1L, 1);
 
+                    b.Property<int>("ChallangeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
@@ -229,20 +249,51 @@ namespace BoardStats.Migrations
                     b.Property<int>("IdWinCon")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdWinner")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("WhoWIn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isChallange")
+                        .HasColumnType("bit");
+
                     b.HasKey("MatchId");
+
+                    b.HasIndex("ChallangeId");
 
                     b.HasIndex("IdGame");
 
                     b.HasIndex("IdWinCon");
 
                     b.ToTable("Matches");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Match_Player", b =>
+                {
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlayerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MatchId", "PlayerId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("Match_Players");
                 });
 
             modelBuilder.Entity("BoardStats.Models.Match_Stat", b =>
@@ -310,6 +361,10 @@ namespace BoardStats.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdStat"), 1L, 1);
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StatCategory")
                         .IsRequired()
@@ -525,6 +580,12 @@ namespace BoardStats.Migrations
 
             modelBuilder.Entity("BoardStats.Models.Match", b =>
                 {
+                    b.HasOne("BoardStats.Models.Challange", "Challange")
+                        .WithMany()
+                        .HasForeignKey("ChallangeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BoardStats.Models.Boardgames", "Game")
                         .WithMany()
                         .HasForeignKey("IdGame")
@@ -537,9 +598,30 @@ namespace BoardStats.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Challange");
+
                     b.Navigation("Game");
 
                     b.Navigation("win");
+                });
+
+            modelBuilder.Entity("BoardStats.Models.Match_Player", b =>
+                {
+                    b.HasOne("BoardStats.Models.Match", "Match")
+                        .WithMany("Match_Player")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BoardStats.Models.Player", "Player")
+                        .WithMany("Match_Player")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("BoardStats.Models.Match_Stat", b =>
@@ -640,11 +722,15 @@ namespace BoardStats.Migrations
 
             modelBuilder.Entity("BoardStats.Models.Match", b =>
                 {
+                    b.Navigation("Match_Player");
+
                     b.Navigation("Match_Stat");
                 });
 
             modelBuilder.Entity("BoardStats.Models.Player", b =>
                 {
+                    b.Navigation("Match_Player");
+
                     b.Navigation("Match_Stat");
                 });
 

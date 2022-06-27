@@ -197,7 +197,7 @@ namespace BoardStats.Controllers
 
         }
        
-
+      
         public async Task< IActionResult> Update(int Id)
         {
 
@@ -301,6 +301,8 @@ namespace BoardStats.Controllers
             }
             return View("Index",allGames);
         }
+
+       
 
     }
 }

@@ -18,5 +18,6 @@ namespace BoardStats.Models
         public ApplicationUser User { get; set; }
         public bool IsActive { get; set; }
         public List<Match_Stat> Match_Stat { get; set; }
+        public List<Match_Player> Match_Player { get; set; }
     }
 }
