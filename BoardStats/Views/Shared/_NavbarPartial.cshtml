@@ -1,0 +1,107 @@
+﻿    
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> UserManager;
+
+    <style>
+        #logo{
+            margin-top:5%;
+           
+            font-size:30px;
+        }
+    </style>
+
+        <style>
+        #logo2{
+            margin-top:5%;
+            margin-left:auto;
+            font-size:30px;
+            color:white;
+        }
+    </style>
+        <style>
+        #navbarDropdown{
+             margin-top:5%;
+           
+            font-size:30px;
+        }
+    </style>
+           <style>
+        #pas{
+            max-height:125px !important;
+        }
+    </style>
+          
+    
+<header id ="pas">
+        <nav id ="pas" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" >
+      
+              
+           
+                <div id ="pas" class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1" id ="pas">
+                         <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="bi bi-list"></i> BoardStats
+                            </a>
+                                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                         <a class="dropdown-item" asp-controller="HomePage" asp-action="Index"><i class="bi bi-house-fill"></i> Home Page</a>
+                                        <a class="dropdown-item" asp-controller="Games" asp-action="Index" asp-route-Id="1"><i class="bi bi-dice-6-fill"></i> Gry</a>
+                                        <a class="dropdown-item" asp-controller="Matches" asp-action="Index" asp-route-Id = "1"><i class="bi bi-file-earmark-post-fill"></i> Historia gier</a>
+                                        <a class="dropdown-item" asp-controller="Players" asp-action="Index"><i class="bi bi-person-square"></i> Gracze</a>
+                                        <a class="dropdown-item" asp-controller="WinCons" asp-action="Index"><i class="bi bi-trophy"></i> Warunki wygranej</a>
+                                         <a class="dropdown-item" asp-controller="Stats" asp-action="Index"><i class="bi bi-table"></i> Lista statystyk</a>
+                                          <a class="dropdown-item" asp-controller="Calendar" asp-action="Index"><i class="bi bi-calendar"></i> Harmonogram</a>
+                                   <a class="dropdown-item" asp-controller="Challanges" asp-action="Index"><i class="bi bi-diagram-2-fill"></i> Kampanie</a>
+                                            <a class="dropdown-item" asp-controller="Statistic" asp-action="Index"><i class="bi bi-bar-chart"></i> Statystyki</a>
+                     
+                                    </div>
+                        </li>
+
+                      
+                        
+                             
+                            
+                    </ul>
+                
+                      <li class="nav-item">
+                            <a class="nav-link text-light" id="logo2" asp-area="" asp-controller="Games" asp-action="Index" asp-route-Id="1"><i class="bi bi-dice-6-fill"></i></a>
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light" id="logo2" asp-area="" asp-controller="Matches" asp-action="Index" asp-route-Id="1"><i class="bi bi-file-earmark-post-fill"></i></a>
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light" id="logo2" asp-area="" asp-controller="Statistic" asp-action="Index" ><i class="bi bi-bar-chart"></i></a>
+                        </li>
+
+                    <form id="search" class="form-inline my-2 my-lg-0" asp-controller="Games" asp-action="Filter" style="padding-right: 5px;">
+                        <input name="searchString" type="text" class="form-control" placeholder="Wyszukaj gre..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        
+                    </form>
+                    <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                            aria-expanded="false">
+                        <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                        <li>
+                            <a class="dropdown-item" >
+                                <i class="bi bi-list"></i> Orders
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                 <span style="padding: 5px;"></span>
+                    <form asp-controller="Account" asp-action="Logout">
+                        <button class="btn btn-outline-danger my-2 my-sm-0">
+                            <i class="bi bi-box-arrow-in-right"></i> Log out
+                        </button>
+                    </form>
+
+                
+                   
+                </div>
+
+
+           
+        </nav>
+    </header>

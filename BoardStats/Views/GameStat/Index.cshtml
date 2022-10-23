@@ -1,0 +1,1723 @@
+﻿@using BoardStats.Models
+@using BoardStats.Data.ViewModels
+@model GameStatsVM
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	
+	<link rel="stylesheet" href="~/css/style_table.css">
+
+
+	
+	<link rel="stylesheet" type="text/css" href="~/css/main.css">
+	<link rel="stylesheet" href="~/css/Style.css">
+        <style>
+		#selector{
+			width:270px;
+            margin-left:1%;
+			height:40px;
+		}
+	</style>
+      	<style>
+		#icon1{
+			color:white;
+            margin-right: 10px;
+		}
+	</style>
+       	<style>
+		#card1{
+			margin-top:-5%;
+            margin-left:20%;
+            height:180px;
+		}
+	</style>
+           	<style>
+		#card2{
+			margin-top:-5%;
+            margin-left:15%;
+            height:180px;
+		}
+	</style>
+        	<style>
+		#shadow1{
+			box-shadow: 8px 8px 10px grey;
+            height:180px;
+		}
+	</style>
+        	<style>
+		#shadow{
+			box-shadow: 8px 8px 10px grey;
+            
+		}
+	</style>
+    	<style>
+		#Chart_container{
+			width:100%;
+			height:400px;
+		}
+	</style>
+        	<style>
+		#Chart_container2{
+			width:100%;
+			height:400px;
+		}
+	</style>
+
+            	<style>
+		#Chart_container3{
+			width:100%;
+			height:400px;
+		}
+	</style>
+
+             	<style>
+		#Chart_container4{
+			width:100%;
+			height:400px;
+		}
+	</style>
+    	<style>
+		#Chart_container5{
+			width:100%;
+			height:400px;
+		}
+	</style>
+
+     	<style>
+		#Chart_container6{
+			width:100%;
+			height:400px;
+		}
+	</style>
+
+       	<style>
+		#Chart_container7{
+			width:100%;
+			height:400px;
+		}
+	</style>
+       	<style>
+		#Chart_container8{
+			width:100%;
+			height:400px;
+		}
+	</style>
+       	<style>
+		#Chart_container9{
+			width:100%;
+			height:400px;
+		}
+	</style>
+          	<style>
+		#Chart_container10{
+			width:100%;
+			height:400px;
+		}
+	</style>
+          	<style>
+		#Chart_container11{
+			width:100%;
+			height:400px;
+		}
+	</style>
+          	<style>
+		#Chart_container12{
+			width:100%;
+			height:400px;
+		}
+	</style>
+          	<style>
+		#Chart_container13{
+			width:100%;
+			height:400px;
+		}
+	</style>
+              	<style>
+		#Chart_container14{
+			width:100%;
+			height:400px;
+		}
+	</style>
+              	<style>
+		#Chart_container15{
+			width:100%;
+			height:400px;
+		}
+	</style>
+               	<style>
+		#Chart_container16{
+			width:100%;
+			height:400px;
+		}
+	</style>
+               	<style>
+		#Chart_container17{
+			width:100%;
+			height:400px;
+		}
+	</style>
+                   	<style>
+		#Chart_container18{
+			width:100%;
+			height:400px;
+		}
+	</style>
+                   	<style>
+		#Chart_container19{
+			width:100%;
+			height:400px;
+		}
+	</style>
+                       	<style>
+		#Chart_container20{
+			width:100%;
+			height:400px;
+		}
+	</style>
+                       	<style>
+		#Chart_container21{
+			width:100%;
+			height:400px;
+		}
+	</style>
+
+               	<style>
+		#Chart_container22{
+			width:100%;
+			height:400px;
+		}
+	</style>
+
+         	<style>
+		#Chart_container222{
+			width:100%;
+			height:400px;
+		}
+	</style>
+    <style>
+        #ContainerDescr{
+               width: 100%;
+               padding-left:20px;
+    height: 40px;
+    margin-bottom: 20px;
+    border: solid;
+    border-block-color: black;
+    background-color: gray;
+   
+    
+        }
+</style>
+
+    <style>
+        #LabelDescr{
+     
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    margin-left:45%;
+      margin-bottom:45%;
+      padding-bottom:10px;
+    
+        }
+</style>
+    <style>
+        #LabelDescr2{
+     
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    margin-left:30%;
+      margin-bottom:45%;
+      padding-bottom:10px;
+    
+        }
+</style>
+
+    <style>
+        #LabelDescr3{
+     
+    color:rgb(50,205,50);
+    font-size:20px;
+    font-weight:bold;
+    margin-left:10px;
+      margin-bottom:45%;
+      padding-bottom:10px;
+    
+        }
+</style>
+
+	</head>
+	<body>
+
+      
+
+
+<header>
+
+                        <partial name="_NavbarPartial"/>
+
+</header>
+<div class="row">
+     <div id="selector" class="selector"  >
+	
+				<select  id="oto1" style="position: relative;left: 10px;"class="form-control"  asp-items="@ViewBag.Players"></select>
+			 </div>	
+    </div>
+
+<div class="container1">
+    <div class="row1">
+        <div class="col-md-5">
+             <img id="shadow" class="img-responsive" src=@Model.Game.ImageUrl>
+        </div>
+         <div class="col-md-52">
+       
+                  <div class="row2">
+           <div class="w-full max-w-3xl">
+    <div class="-mx-2 md:flex">
+
+       
+            <div id="card1" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-hourglass"></i>Średni czas gry</h4>
+                            <h3 class="text-3xl text-white font-semibold leading-tight my-3">@Model.avgDuration minut</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+                <div id="card2" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-trophy-fill"></i>Najczęściej wygrywa</h4>
+                            <h3 class="text-2xl text-white font-semibold leading-tight my-3">@Model.bestWinner</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+
+              </div>  
+   </div>
+
+          
+
+         </div>
+              <div class="row3">
+                      <div class="w-full max-w-3xl">
+    <div class="-mx-2 md:flex">
+
+       
+            <div id="card1" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-people-fill"></i>Średnia ilość graczy</h4>
+                            <h3 class="text-3xl text-white font-semibold leading-tight my-3">@Model.avgNumberOfPlayers</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+               <div id="card2" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-dice-6-fill"></i>Ilość rozgrywek</h4>
+                            <h3 class="text-2xl text-white font-semibold leading-tight my-3">@Model.playedAmount</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+              </div>  
+   </div>
+             
+        
+         </div>
+   
+          </div>
+    </div>
+</div>
+@if(Model.isWinCon==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące sposobu zwycięstwa</span>
+            
+	    </div>
+
+         <div class="container1s">
+            <div class="row4">
+                <div class="col-md-5">
+                    <div id="Chart_container4">
+                        <canvas id="Chart_bar4"></canvas>
+
+                    </div>
+               </div>
+
+                     <div class="col-md-522">
+                        <div id="Chart_container7">
+	                <canvas id="Chart_bar7"></canvas>
+
+                        </div>
+                </div>
+               
+
+            </div>
+        </div>
+    }
+
+
+
+@if(Model.isSumPoints==true || Model.isPartPoints==true)
+    {
+        <div class="container5">
+		
+        @if(Model.isSumPoints==true){
+            
+            <span id="LabelDescr2" class="label">Statystyki dotyczące punktacji:</span>
+            <span id="LabelDescr3" class="label">średnia ilość zdobywanych punktów -> @Model.avgSumPoints</span>}
+    
+            @if(Model.isSumPoints==false){
+                <span id="LabelDescr" class="label">Statystyki dotyczące punktacji</span>
+            }
+	    </div>
+    }
+    
+@if(Model.isPartPoints==true)
+    {
+        <div class="container1s">
+            <div class="row4">
+                <div class="col-md-5">
+                    <div id="Chart_container">
+                        <canvas id="Chart_bar"></canvas>
+
+                    </div>
+                </div>
+                @if (Model.isSumPoints == true)
+                {
+                    <div class="col-md-522">
+                        <div id="Chart_container2">
+	                <canvas id="Chart_bar2"></canvas>
+
+                        </div>
+                </div>
+                }
+                @if (Model.isSumPoints == false)
+                {
+                     <div class="col-md-522">
+                        <div id="Chart_container3">
+	                <canvas id="Chart_bar3"></canvas>
+
+                        </div>
+                </div>
+                }
+
+            </div>
+</div>
+
+    }
+
+
+    @if(Model.isToDo==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące: @Model.ToDoName</span>
+            
+	    </div>
+    }
+
+    @if(Model.isToDo==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container5">
+                        <canvas id="Chart_bar5"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container6">
+	                <canvas id="Chart_bar6"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+
+      @if(Model.isToDo2==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące: @Model.ToDoName2</span>
+            
+	    </div>
+    }
+     @if(Model.isToDo2==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container8">
+                        <canvas id="Chart_bar8"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container9">
+	                <canvas id="Chart_bar9"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    
+      @if(Model.isToDo3==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące: @Model.ToDoName3</span>
+            
+	    </div>
+    }
+     @if(Model.isToDo3==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container10">
+                        <canvas id="Chart_bar10"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container11">
+	                <canvas id="Chart_bar11"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+ 
+    @if(Model.isToDo4==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące: @Model.ToDoName4</span>
+            
+	    </div>
+    }
+     @if(Model.isToDo4==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container12">
+                        <canvas id="Chart_bar12"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container13">
+	                <canvas id="Chart_bar13"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+    @if(Model.isOnStart==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące elementu początkowego: @Model.OnStartName</span>
+            
+	    </div>
+    }
+
+     @if(Model.isOnStart==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container14">
+                        <canvas id="Chart_bar14"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container15">
+	                <canvas id="Chart_bar15"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if(Model.isOnStart2==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące elementu początkowego: @Model.OnStartName2</span>
+            
+	    </div>
+    }
+
+     @if(Model.isOnStart2==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container16">
+                        <canvas id="Chart_bar16"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container17">
+	                <canvas id="Chart_bar17"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+     @if(Model.isOnStart3==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotycząc eelementu początkowego: @Model.OnStartName3</span>
+            
+	    </div>
+    }
+
+     @if(Model.isOnStart3==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container18">
+                        <canvas id="Chart_bar18"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container19">
+	                <canvas id="Chart_bar19"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+
+     @if(Model.isOnStart4==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Statystyki dotyczące elementu początkowego: @Model.OnStartName4</span>
+            
+	    </div>
+    }
+
+     @if(Model.isOnStart4==true)
+    {
+         <div class="container1s">
+            <div class="row4">
+              
+                 <div class="col-md-5">
+                    <div id="Chart_container20">
+                        <canvas id="Chart_bar20"></canvas>
+
+                    </div>
+              </div>
+               
+               <div class="col-md-522">
+                        <div id="Chart_container21">
+	                <canvas id="Chart_bar21"></canvas>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    }
+
+      @if(Model.isExpansions==true)
+    {
+        <div class="container5">
+		
+                <span id="LabelDescr" class="label">Częstotliwość wykorzystania dodatków</span>
+            
+	    </div>
+
+          <div id="Chart_container22">
+                        <canvas id="Chart_bar22"></canvas>
+
+                    </div>
+    }
+
+          <div class="container5">
+		
+                <span id="LabelDescr" class="label">Ilość gier w podziale na graczy</span>
+            
+	    </div>
+    <div class="container1s">
+            <div class="row4">
+
+  </div>
+                   <div id="Chart_container222">
+	        <canvas id="Chart_bar222"></canvas>
+
+</div>
+    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="~/js/jquery_table.min.js"></script>
+  <script src="~/js/popper_table.js"></script>
+  <script src="~/js/bootstrap_table.min.js"></script>
+  <script src="~/js/main_table.js"></script>
+   <script src="~/js/site.js"></script>
+
+
+
+   
+                     <script>
+var names = @Json.Serialize(ViewBag.playersWinName);
+var am_players = @Json.Serialize(ViewBag.playersWinAmount);
+var ctx = $("#Chart_bar7");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:names,
+		datasets: [{
+      label: 'Najczęściej wygrywający',
+      backgroundColor: 'rgb(255,153,51)',
+      borderColor: 'rgb(255,153,51)',
+      data: am_players,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Najczęściej wygrywający gracze',
+         
+      },
+         tooltip: {
+            enabled:false
+        }
+       
+    }
+	},
+});
+
+		</script>
+
+    <script>
+var categories = @Json.Serialize(ViewBag.PointsCategories);
+var values = @Json.Serialize(ViewBag.PointsValues);
+var ctx = $("#Chart_bar");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Średnia zdobytych punktów',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+        <script>
+var categories = @Json.Serialize(ViewBag.PointsWinnerCategories);
+var values = @Json.Serialize(ViewBag.PointsWinnerValues);
+var ctx = $("#Chart_bar2");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(0,191,255)',
+      borderColor: 'rgb(0,191,255)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Średni udział danej punktacji w sumie punktów wygrywających graczy',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+                <script>
+var categories = @Json.Serialize(ViewBag.PointsWinnerCategories);
+var values = @Json.Serialize(ViewBag.PointsWinnerValues);
+var ctx = $("#Chart_bar3");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(0,191,255)',
+      borderColor: 'rgb(0,191,255)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Średnia ilość punktów dla wygranych gier ',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+          <script>
+var categories = @Json.Serialize(ViewBag.WinConditions);
+var values = @Json.Serialize(ViewBag.WinValues);
+
+var ctx = $("#Chart_bar4");
+var barChart = new Chart(ctx, {
+    	type:'pie',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: [
+          'rgb(0,191,255)',
+          'rgb(50,205,50)',
+          'rgb(255,64,0)',
+          'rgb(0,255,191)',
+          'rgb(255,191,0)',
+          'rgb(191,0,255)',
+          'rgb(0,191,255)',
+          'rgb(0,191,255)',
+
+      ],
+      borderColor: 'rgb(0,191,255)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+  
+
+    plugins: {
+      legend: {
+        display: true,
+         position: 'right',
+      },
+      title: {
+        display: true,
+        text: 'Rozkład sposobów kończenia gry ',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:true
+        }
+    }
+	},
+	
+});
+
+		</script>
+
+
+        
+    <script>
+var categories = @Json.Serialize(ViewBag.isToDo);
+var values = @Json.Serialize(ViewBag.isToDo_values);
+
+var ctx = $("#Chart_bar5");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.isToDoA);
+var values = @Json.Serialize(ViewBag.isToDoA_values);
+var ctx = $("#Chart_bar6");
+
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+
+        <script>
+var categories = @Json.Serialize(ViewBag.isToDo2);
+var values = @Json.Serialize(ViewBag.isToDo2_values);
+var ctx = $("#Chart_bar8");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.isToDo2A);
+var values = @Json.Serialize(ViewBag.isToDo2A_values);
+var ctx = $("#Chart_bar9");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      title: {
+        display: true,
+      },
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+         <script>
+var categories = @Json.Serialize(ViewBag.isToDo3);
+var values = @Json.Serialize(ViewBag.isToDo3_values);
+var ctx = $("#Chart_bar10");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.isToDo3A);
+var values = @Json.Serialize(ViewBag.isToDo3A_values);
+var ctx = $("#Chart_bar11");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+                 <script>
+var categories = @Json.Serialize(ViewBag.isToDo4);
+var values = @Json.Serialize(ViewBag.isToDo4_values);
+var ctx = $("#Chart_bar12");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.isToDo4A);
+var values = @Json.Serialize(ViewBag.isToDo4A_values);
+var ctx = $("#Chart_bar13");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+
+
+                    <script>
+var categories = @Json.Serialize(ViewBag.onStart);
+var values = @Json.Serialize(ViewBag.onStart_values);
+var ctx = $("#Chart_bar14");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.onStartA);
+var values = @Json.Serialize(ViewBag.onStartA_values);
+var ctx = $("#Chart_bar15");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+        
+                    <script>
+var categories = @Json.Serialize(ViewBag.onStart2);
+var values = @Json.Serialize(ViewBag.onStart2_values);
+var ctx = $("#Chart_bar16");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.onStart2A);
+var values = @Json.Serialize(ViewBag.onStart2A_values);
+var ctx = $("#Chart_bar17");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+                
+                    <script>
+var categories = @Json.Serialize(ViewBag.onStart3);
+var values = @Json.Serialize(ViewBag.onStart3_values);
+var ctx = $("#Chart_bar18");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.onStart3A);
+var values = @Json.Serialize(ViewBag.onStart3A_values);
+var ctx = $("#Chart_bar19");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+                          <script>
+var categories = @Json.Serialize(ViewBag.onStart4);
+var values = @Json.Serialize(ViewBag.onStart4_values);
+var ctx = $("#Chart_bar20");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Występowanie danego elementu w zwycięzskich rozgrywkach',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+
+         <script>
+var categories = @Json.Serialize(ViewBag.onStart4A);
+var values = @Json.Serialize(ViewBag.onStart4A_values);
+var ctx = $("#Chart_bar21");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+
+                 <script>
+var categories = @Json.Serialize(ViewBag.expansionsN);
+var values = @Json.Serialize(ViewBag.expansionsNValue);
+var ctx = $("#Chart_bar22");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:categories,
+		datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(50,205,50)',
+      borderColor: 'rgb(50,205,50)',
+      data: values,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Jak często element wystąpił',
+         font: {
+                        size: 16
+                    }
+       
+      },
+          tooltip: {
+            enabled:false
+        }
+    }
+	},
+});
+
+		</script>
+        <script>
+var names = @Json.Serialize(ViewBag.playersLister);
+var am_players = @Json.Serialize(ViewBag.playersListerA);
+var ctx = $("#Chart_bar222");
+var barChart = new Chart(ctx, {
+
+	type:'bar',
+    data: {
+		labels:names,
+		datasets: [{
+      label: 'Ilość gier rozegranych przez gracza',
+      backgroundColor: 'rgb(255,0,0)',
+      borderColor: 'rgb(255,0,0)',
+      data: am_players,
+    }]
+	},
+    options: {
+		maintainAspectRatio: false,
+         responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: true,
+        text: 'Ilość gier rozegranych przez gracza',
+         
+      },
+         tooltip: {
+            enabled:false
+        }
+       
+    }
+	},
+});
+
+		</script>
+
+                   <script>
+
+$("#oto1").change(function () {
+    let _selectedValue = $(this).val();
+    let _data = {"Id": @Model.Game.IdGame,"Id_Player":_selectedValue};
+
+    window.location.href = '/GameStat/Index/'+_data.Id+'&'+_data.Id_Player;       
+});
+</script>
+	</body>
+</html>
+

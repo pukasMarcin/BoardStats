@@ -1,0 +1,158 @@
+﻿@using BoardStats.Models
+@using BoardStats.Data.ViewModels
+@model GameStatsVM
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	
+	<link rel="stylesheet" href="~/css/style_table.css">
+
+
+	
+	<link rel="stylesheet" type="text/css" href="~/css/main.css">
+	<link rel="stylesheet" href="~/css/Style.css">
+      	<style>
+		#icon1{
+			color:white;
+            margin-right: 10px;
+		}
+	</style>
+       	<style>
+		#card1{
+			margin-top:-5%;
+            margin-left:20%;
+            height:180px;
+		}
+	</style>
+           	<style>
+		#card2{
+			margin-top:-5%;
+            margin-left:15%;
+            height:180px;
+		}
+	</style>
+        	<style>
+		#shadow1{
+			box-shadow: 8px 8px 10px grey;
+            height:180px;
+		}
+	</style>
+	</head>
+	<body>
+
+      
+
+
+<header>
+
+                        <partial name="_NavbarPartial"/>
+
+</header>
+
+
+<div class="container1">
+    <div class="row1">
+        <div class="col-md-5">
+             <img class="img-responsive" src=@Model.Game.ImageUrl>
+        </div>
+         <div class="col-md-52">
+       
+                  <div class="row2">
+           <div class="w-full max-w-3xl">
+    <div class="-mx-2 md:flex">
+
+       
+            <div id="card1" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-trophy"></i>Najwięcej wygranych</h4>
+                            <h3 class="text-3xl text-white font-semibold leading-tight my-3">@Model.avgDuration minut</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+                <div id="card2" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-dice-6-fill"></i>Najczęściej grane</h4>
+                            <h3 class="text-2xl text-white font-semibold leading-tight my-3">@Model.bestWinner</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+
+              </div>  
+   </div>
+
+          
+
+         </div>
+              <div class="row3">
+                      <div class="w-full max-w-3xl">
+    <div class="-mx-2 md:flex">
+
+       
+            <div id="card1" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-list-ol"></i>Ile gier zagrano</h4>
+                            <h3 class="text-3xl text-white font-semibold leading-tight my-3">@Model.avgNumberOfPlayers</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+
+               <div id="card2" class="w-full md:w-1/3 px-2">
+                <div class="rounded-3xl mb-11">
+                    <div  id="shadow1" class="rounded-3xl bg-black relative overflow-hidden">
+                        <div class="px-3 pt-8 text-center relative z-10">
+                            <h4 class="text-sm pb-4 uppercase text-white leading-tight"><i id="icon1" class="bi bi-people-fill"></i>Średnia ilość graczy</h4>
+                            <h3 class="text-2xl text-white font-semibold leading-tight my-3">@Model.playedAmount</h3>
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+              </div>  
+   </div>
+             
+        
+         </div>
+   
+          </div>
+    </div>
+</div>
+
+	<script src="~/js/jquery_table.min.js"></script>
+  <script src="~/js/popper_table.js"></script>
+  <script src="~/js/bootstrap_table.min.js"></script>
+  <script src="~/js/main_table.js"></script>
+   <script src="~/js/site.js"></script>
+
+	</body>
+</html>
+

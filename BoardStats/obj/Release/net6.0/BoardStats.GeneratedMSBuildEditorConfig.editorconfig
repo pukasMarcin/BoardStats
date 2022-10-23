@@ -1,0 +1,216 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BoardStats
+build_property.RootNamespace = BoardStats
+build_property.ProjectDir = D:\BoardStats\Board\BoardStats-27.06.2022\BoardStats-27.06.2022\BoardStats\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\BoardStats\Board\BoardStats-27.06.2022\BoardStats-27.06.2022\BoardStats
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Calendar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Calendar/_CalendarPopUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcX0NhbGVuZGFyUG9wVXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Challanges/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbGxhbmdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Challanges/_PopUpWindow2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbGxhbmdlc1xfUG9wVXBXaW5kb3cyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Challanges/_PopUpWindowDeleteChallange.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbGxhbmdlc1xfUG9wVXBXaW5kb3dEZWxldGVDaGFsbGFuZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Challanges/_PopUpWindowUpdateChallange.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbGxhbmdlc1xfUG9wVXBXaW5kb3dVcGRhdGVDaGFsbGFuZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Detail/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGV0YWlsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/GameStat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZVN0YXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Games/AddGameBgg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZXNcQWRkR2FtZUJnZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Games/AddNewGame.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZXNcQWRkTmV3R2FtZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Games/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Games/UpdateGame.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZXNcVXBkYXRlR2FtZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Games/_PopUpWindowNewWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FtZXNcX1BvcFVwV2luZG93TmV3V2luQ29uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/HomePage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVBhZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/AddMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xBZGRNYXRjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/AddMatch2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xBZGRNYXRjaDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/AddMatch3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xBZGRNYXRjaDMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/Update2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xVcGRhdGUyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/Update3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xVcGRhdGUzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Matches/_PopUpWindowDeleteMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0Y2hlc1xfUG9wVXBXaW5kb3dEZWxldGVNYXRjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/PlayerStats/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyU3RhdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Players/AddPlayer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xBZGRQbGF5ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Players/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Players/_PopUpWindow2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xfUG9wVXBXaW5kb3cyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Players/_PopUpWindowDeletePlayer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xfUG9wVXBXaW5kb3dEZWxldGVQbGF5ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Players/_PopUpWindowUpdatePlayer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xfUG9wVXBXaW5kb3dVcGRhdGVQbGF5ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Shared/_CalendarPopUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYWxlbmRhclBvcFVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Shared/_NavbarPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Shared/_PopUpGame.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qb3BVcEdhbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Statistic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Statistic/IndexFilterByGame.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljXEluZGV4RmlsdGVyQnlHYW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Stats/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Stats/_PopUpWindowDeleteStat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHNcX1BvcFVwV2luZG93RGVsZXRlU3RhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Stats/_PopUpWindowNewStat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHNcX1BvcFVwV2luZG93TmV3U3RhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Stats/_PopUpWindowUpdateStat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdHNcX1BvcFVwV2luZG93VXBkYXRlU3RhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/WinCons/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/WinCons/_PopUpWindowDeleteWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xfUG9wVXBXaW5kb3dEZWxldGVXaW5Db24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/WinCons/_PopUpWindowNewWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xfUG9wVXBXaW5kb3dOZXdXaW5Db24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/WinCons/_PopUpWindowUpdateWinCon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcV2luQ29uc1xfUG9wVXBXaW5kb3dVcGRhdGVXaW5Db24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BoardStats/Board/BoardStats-27.06.2022/BoardStats-27.06.2022/BoardStats/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-d8g4li6wk1

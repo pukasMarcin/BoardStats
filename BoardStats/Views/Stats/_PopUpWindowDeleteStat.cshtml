@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model Stat
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+	  <form  method="post" class="form-register" id="form-register">
+      <div class="modal-content">
+       
+        <div class="modal-body">
+         
+		        
+			  @Html.HiddenFor(m => Model.IdStat, new {Value=@Model.IdStat})
+											
+
+							Czy na pewno chcesz usunąć te statystykę?
+								
+			
+					
+
+
+						
+
+						
+
+						
+						
+		        
+		        
+        </div>
+        <div class="modal-footer">
+			<div class="form-row">
+									
+							
+						<button class="btn btn-danger "  type="submit" asp-action="Delete" asp-controller="Stats" >Delete</button>
+					 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						
+						</div>
+         
+        </div>
+      </div>
+	  </form>
+      
+    </div>
+  </div>

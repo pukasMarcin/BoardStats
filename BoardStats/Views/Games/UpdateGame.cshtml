@@ -1,0 +1,432 @@
+﻿@using BoardStats.Data
+@using BoardStats.Data.ViewModels
+@model BoardViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Wizard-v6</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="~/css/opensans-font.css">
+	<link rel="stylesheet" type="text/css" href="~/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- datepicker -->
+	<link rel="stylesheet" type="text/css" href="~/css/jquery-ui.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="~/css/style_form.css"/>
+
+
+	
+  
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"  
+          rel="stylesheet" type="text/css" />  
+
+    <link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"  
+          rel="stylesheet" type="text/css" />  
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"  
+            type="text/javascript"></script>  
+				<script type="text/javascript">
+    $(document).ready(function () {
+        $('#eh').multiselect({
+            includeSelectAllOption: true
+        });
+        
+    });
+
+</script>
+
+
+
+  
+  <!-- Bootstrap -->
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap2.min.css" />
+
+
+
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+	<script type="text/javascript">
+    $(function () {
+        $('#eh2).multiselect({
+            includeSelectAllOption: true
+        });
+        
+    });
+ 
+</script>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css" />
+
+
+
+
+
+  <!-- Font Awesome --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="image/svg" href="~/images/shelf.jpg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<script type="text/javascript" src="~/js/site.js"></script>
+	
+
+     <link rel="stylesheet" href="~/css/Style.css">
+
+
+       <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css" />
+
+	   <style>
+		#list{
+			margin-top:5%;
+			margin-right:5%;
+			margin-left:auto;
+		}
+	</style>
+  <style>
+		#list2{
+			margin-top:5%;
+			margin-right:auto;
+			margin-left:auto;
+		}
+	</style>
+	  <style>
+		#button{
+			margin-top:10%;
+			margin-right:5%;
+		}
+	</style>
+
+</head>
+
+
+
+
+<body>
+
+	
+      
+
+
+<header>
+
+                        <partial name="_NavbarPartial"/>
+
+</header>
+
+	<div class="container">
+		<div class="wizard-heading">Edycja gry</div>
+		<div class="wizard-v6-content">
+			<div class="wizard-form">
+		        <form class="form-register" id="form-register" asp-controller="Games" asp-action="Update" method="post">
+		        	<div id="form-total">
+		        		<!-- SECTION 1 -->
+			            <h2>
+			            	<p class="step-icon"><span>1</span></p>
+			            	<span class="step-text">Podstawowe informacje</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<div class="form-heading">
+			                		<h3>Podstawowe informacje</h3>
+			                		<span>1/3</span>
+			                	</div>
+								<div class="form-row">
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" name="Name" asp-for="Name" required>
+											<span class="label">Name of game</span>
+										</label>
+									</div>
+
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" name="BggRate" asp-for="BggRate">
+											<span class="label">Bgg Rate</span>
+										</label>
+									</div>
+								</div>
+
+												<div class="form-row">
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" name="Minplayers" asp-for="MinPlayers">
+											<span class="label">Minimum of players</span>
+										</label>
+									</div>
+
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" name="Maxplayers" asp-for="MaxPlayers">
+											<span class="label">Maximum of players</span>
+										</label>
+									</div>
+								</div>
+
+										<div class="form-row">
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" name="PlayingTime" asp-for="PlayingTime">
+											<span class="label">Time of playing</span>
+										</label>
+									</div>
+
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" name="Bestplayers" asp-for="BestPlayers">
+											<span class="label">Best number of players</span>
+										</label>
+									</div>
+								</div>
+
+						
+								
+								<div class="form-row">
+							
+						<button class="btn btn-success " style="position: relative; left: 30px;" type="submit" >Update</button>
+					
+						
+						</div>
+
+
+
+							</div>
+			            </section>
+						<!-- SECTION 2 -->
+			            <h2>
+			            	<p class="step-icon"><span>2</span></p>
+			            	<span class="step-text">Opis</span>
+			            </h2>
+			            <section>
+			                <div class="inner">
+			                	<div class="form-heading">
+			                		<h3>Opis</h3> 
+			                		<span>2/3</span>
+			                	</div>
+		                
+
+								<img class="img-center" src="@Model.ImageUrl"  />
+
+										<div class="form-row">
+
+									<div class="form-holder">
+										<label class="form-row-inner">
+											<input type="text" class="form-control" name="Description" asp-for="Description" >
+											<span class="label">Description</span>
+										</label>
+									</div>
+
+									<div class="form-holder">
+										<label class="form-row-inner">
+									
+										<input type="text" class="form-control" name="ImageUrl" asp-for="ImageUrl" >
+											<span class="label">Image</span>
+
+												
+										</label>
+									</div>
+									</div>
+
+
+									<div class="form-row">
+									 
+                             
+
+									  	<div class="form-holder">
+										<label class="form-row-inner">
+									
+										<input type="text" class="form-control" name="InstructionUrl" asp-for="InstructionUrl" >
+											<span class="label">Instrukcja</span>
+
+												
+										</label>
+									</div>
+
+									 <div class="form-holder">
+										<label class="form-row-inner">
+                                <select asp-for="Category" name="Category" class="form-control" asp-items="Html.GetEnumSelectList<GamesCategory>()"></select>
+									<span class="label">Category</span>
+
+											
+										</label>
+									  </div>
+                             
+                            </div>
+
+					
+
+					  <div class="form-row">
+							
+						<button class="btn btn-success " style="position: relative; left: 30px;" type="submit" >Update</button>
+					
+						
+						</div>
+
+
+									
+							</div>
+			            </section>
+
+
+
+
+
+			            <!-- SECTION 3 -->
+			            <h2>
+			            	<p class="step-icon"><span>3</span></p>
+			            	<span class="step-text">Statystyki</span>
+			            </h2>
+			            <section>
+
+
+			                <div class="inner">
+			                	<div class="form-heading">
+			                		<h3>Statystyki</h3>
+			                		<span>3/3</span>
+			                	</div>
+			<div class="form-holder">
+										<label class="form-row-inner">
+                                <select asp-for="MainGame" name="MainGame" class="form-control" asp-items="@ViewBag.Names" ></select>
+									
+
+											
+										</label>
+									  </div>
+
+
+
+                           <div id="list" class="dropdown-check-list" tabindex="100" asp-for="statsVM" name="statsVM">
+							   
+    <span class="anchor">Wybierz statystyki</span>
+    <ul class="items">
+        @for(int i =0; i< @Model.statsVM.Count;i++)
+        {
+            <li>
+                
+				  @Html.CheckBoxFor(m => @Model.statsVM[i].isChecked)  @Model.statsVM[i].Statistic
+				
+               @Html.HiddenFor(m => m.statsVM[i].Statistic, new {Value= @Model.statsVM[i].Statistic})
+
+			    @Html.HiddenFor(m => m.statsVM[i].StatsId, new {Value= @Model.statsVM[i].StatsId})
+               
+				
+            </li>
+
+
+
+        }
+		
+    </ul>
+</div>
+
+
+
+                           <div id="list2" class="dropdown-check-list" tabindex="100" asp-for="winVM" name="winVM">
+							   
+    <span class="anchor">Wybierz warunki zwycięstwa</span>
+    <ul class="items">
+        @for(int i =0; i< @Model.winVM.Count;i++)
+        {
+            <li>
+                
+				  @Html.CheckBoxFor(m => @Model.winVM[i].isChecked)  @Model.winVM[i].Win
+				
+               @Html.HiddenFor(m => m.winVM[i].Win, new {Value= @Model.winVM[i].Win})
+
+			    @Html.HiddenFor(m => m.winVM[i].WinId, new {Value= @Model.winVM[i].WinId})
+               
+				
+            </li>
+
+
+
+        }
+		
+    </ul>
+</div>
+
+
+
+
+@Html.HiddenFor(m => Model.BggId, new {Value= @Model.BggId})
+@Html.HiddenFor(m => Model.holdId, new {Value= @Model.holdId})
+
+	<div class="form-row">
+							
+						<button class="btn btn-success " style="position: relative; left: 30px;" type="submit" >Update</button>
+					
+						
+						</div>
+
+
+
+						 
+
+							</div>
+			            </section>
+
+
+					
+
+		        	</div>
+		        </form>
+			</div>
+		</div>
+	</div>
+	<script src="~/js/jquery-3.3.1.min.js"></script>
+	<script src="~/js/jquery.steps.js"></script>
+	<script src="~/js/jquery-ui.min.js"></script>
+	<script src="~/js/main.js"></script>
+</body>
+
+
+</html>
+
+ <script>
+        $(function () {
+            var checkList = document.getElementById('list');
+            checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+                if (checkList.classList.contains('visible'))
+                    checkList.classList.remove('visible');
+                else
+                    checkList.classList.add('visible');
+            }
+        })
+    </script>
+
+
+	 <script>
+        $(function () {
+            var checkList = document.getElementById('list2');
+            checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+                if (checkList.classList.contains('visible'))
+                    checkList.classList.remove('visible');
+                else
+                    checkList.classList.add('visible');
+            }
+        })
+    </script>
+
+
+	<script type="text/javascript">
+    $(document).ready(function () {
+        $('#eh').multiselect({
+            includeSelectAllOption: true
+        });
+        
+    });
+
+</script>
